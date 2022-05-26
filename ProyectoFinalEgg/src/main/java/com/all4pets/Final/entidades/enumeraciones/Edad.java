@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.all4pets.Final.entidades.enumeraciones;
 
-/**
- *
- * @author Sebastian Hubaide
- */
-public class Edad {
+
+public enum Edad {
+    
+    ADULTO("ADULTO"),
+    MEDIANO("MEDIANO"),
+    CACHORRO("CACHORRO");
+    
+    private String edad;
+
+    private Edad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getEdad() {
+        return this.edad;
+    }
     
 }
