@@ -39,6 +39,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    
 }
 
 h1{
@@ -407,3 +408,25 @@ footer{
     font-size: 20px;
     margin: 0 10px;
 }
+
+/* carga */
+
+.preloader {
+    width: 70px;
+    height: 70px;
+    border: 10px solid #eee;
+    border-top: 10px solid #666;
+    border-radius: 50%;
+    animation-name: girar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
