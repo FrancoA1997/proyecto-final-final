@@ -204,9 +204,12 @@ hero
     width: 80vw;
     max-width: 1200px;
     margin: 3rem auto;
+    
 }
 
+
 .help__cards--container{
+    display: flex;
     padding: 2rem;
 }
 
@@ -217,6 +220,7 @@ hero
     padding: 1rem;
     border-radius: 10px;
     padding: 60px 10px;
+    
 }
 
 .help__card:first-of-type{background-color: #6C63FF;}
@@ -246,12 +250,122 @@ hero
     width: 100%;
     height: 0;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background: url(imgs/stainless-images-RUgbGfdma6U-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: height 0.5s ease-in-out;
     z-index: 99;
     opacity: 0;
+    
+}
+
+.help__card .card__link::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    z-index: -1;
+
 }
 
 .help__card:hover .card__link{
+    animation: showLink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes showLink{
+    0%{
+        opacity: 0;
+        height: 0;
+    }
+    100%{
+        opacity: 1;
+        height: 100%;
+    }
+}
+
+
+/*
+carta 2
+*/
+#help{
+    width: 80vw;
+    max-width: 1200px;
+    margin: 3rem auto;
+    
+}
+
+
+.help__cards--container{
+    display: flex;
+    padding: 2rem;
+}
+
+#help .help__card1{
+    position: relative;
+    margin: 0 5%;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    padding: 60px 10px;
+    
+}
+
+.help__card1:first-of-type{background-color: #6C63FF;}
+.help__card1:nth-of-type(2){background-color: #6C63FF;}
+
+
+.help__card1 h3,
+.help__card1 p{ color: white;}
+
+.help__card1 span{
+    position: absolute;
+    top: 5%;
+    left: 0;
+    background: white;
+    padding: 5px;
+    
+}
+
+.help__card1:first-of-type span{color: lightblue;}
+.help__card1:nth-of-type(2) span {color: lightblue;}
+
+
+.help__card1 .card__link{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 10px;
+    background: url(imgs/eric-ward-ISg37AI2A-s-unsplash.jpg);
+    background-position: bottom;
+    background-size:cover;
+    background-repeat: no-repeat;
+    transition: height 0.5s ease-in-out;
+    z-index: 99;
+    opacity: 0;
+    
+}
+
+.help__card1 .card__link::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    z-index: -1;
+
+}
+
+.help__card1:hover .card__link{
     animation: showLink;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
