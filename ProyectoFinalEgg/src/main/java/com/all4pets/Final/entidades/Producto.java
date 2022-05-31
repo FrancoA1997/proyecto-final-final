@@ -6,11 +6,15 @@
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.entidades.enumeraciones.Tipo;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 @Data 
 public class Producto {
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     String Id;
     Tipo tipo;
     int precio;
