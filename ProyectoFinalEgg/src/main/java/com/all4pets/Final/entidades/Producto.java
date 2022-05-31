@@ -5,10 +5,16 @@
  */
 package com.all4pets.Final.entidades;
 
-/**
- *
- * @author Sebastian Hubaide
- */
+import com.all4pets.Final.entidades.enumeraciones.Tipo;
+import javax.persistence.Id;
+import lombok.Data;
+@Data 
 public class Producto {
+    @Id
+    String Id;
+    Tipo tipo;
+    int precio;
+    boolean Stock;
+    String Descripcion;
     
 }
