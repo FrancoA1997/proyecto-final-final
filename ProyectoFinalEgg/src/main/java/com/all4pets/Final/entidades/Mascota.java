@@ -23,6 +23,8 @@ public class Mascota {
     private Edad edad; //Edad de la mascota, ya sea, cachorro, adulto
     private Genero genero; //Género de la mascota, o sea macho o hembra
     private Boolean alta;
+    
+    
    
 
 }

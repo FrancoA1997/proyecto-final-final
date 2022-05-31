@@ -18,7 +18,9 @@ html{
 
 body{
     font-family: 'Roboto', sans-serif;
+    
 }
+
 
 /* align container */
 .container__center{
@@ -62,7 +64,7 @@ a{text-decoration: none;}
 
 ul li{list-style: none;}
 
-/* LANDING AREA =============*/
+/* nav =============*/
 #landing__area{
     width: 100%;
     height: 70vh;
@@ -90,6 +92,59 @@ nav a{
 }
 nav a:hover{color: #6C63FF;}
 
+/*
+dark mode
+
+
+.checkbox {
+    opacity: 0;
+	position: absolute;
+}
+
+.label {
+    background-color: rgb(0, 0, 0);
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+	transform: scale(1.5);
+}
+
+.label .ball {
+    background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 20px;
+	width: 20px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+
+.fa-moon {
+    color: #384371;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+*/
+
+
+/*
+hero
+*/
 .landing__content {
     height: 90%;
     width: 80%;
@@ -107,6 +162,12 @@ nav a:hover{color: #6C63FF;}
     width: 60%;
 }
 
+.card__link a{
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+}
 
 .landing__info button{
     
@@ -206,78 +267,8 @@ nav a:hover{color: #6C63FF;}
     }
 }
 
-.card__link a{
-    background-color: var(--dark-blue);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 40px;
-}
-.container .card .box{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #6C63FF;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px 10px 0 0 ;
-}
 
-.container .card h1{
-    font-size: 30px;
-    color: #fff;
-}
 
-.container .card .slide{
-    width: 300px;
-    height: 200px;
-    transition: 0.6s;
-}
-
-.container .card .slide.slide1{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(100px);
-    z-index: 1;
-    transition: 0.6s;
-}
-.container .card:hover .slide.slide1{
-    transform: translateY(0px);
-}
-
-.container .card  .slide.slide2{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    transition: 0.6s;
-    transform: translateY(-100px);
-    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-
-}
-
-.container .card:hover .slide.slide2{
-    transform: translateY(0);
-}
-
-.container .card .slide.slide2 .content h3{
-    margin: 0 0 10px 0;
-    font-size: 24px;
-    text-align: center;
-    color: #414141;
-}
-
-.container .card .slide.slide2 .content p{
-    text-align: center;
-    color: black;
-    font-weight: bold;
-}
 
 /* quienes somos*/
 
@@ -310,81 +301,117 @@ nav a:hover{color: #6C63FF;}
 
 
 /*  FORM */
-form{
-    width: 60vw;
-    max-width: 800px;
-    margin: 2rem auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+
+.container-form{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 10px;
 }
 
-form .form__row{
-    width: 100%;
-    height: 60%;
-    position: relative;
+.container-form:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: url("img/bg.jpg") no-repeat center;
+	background-size: cover;
+	filter: blur(50px);
+	z-index: -1;
+}
+.contact-box{
+	max-width: 850px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
 }
 
-.form__row input{
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-bottom: solid 1px var(--light-blue);
-    outline: none;
-}
-/* hide arrows form input number */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
+.left{
+	background: url("imgs/undraw_contract_re_ves9.svg") no-repeat center;
+	background-size: cover;
+	height: 100%;
 }
 
+.right{
+	padding: 25px 40px;
+}
 
-.form__row label{
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h2:after{
+	content: '';
     position: absolute;
-    bottom: 2px;
-    left: 2px;
-    color: lightblue;
-    font-size: 14px;
-    transition: 0.5s;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #6C63FF;
 }
 
-input:focus ~ label{
-    top: -5px;
-    font-size: 10px;
-    color: darkblue;
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 textarea{
-    width: 100%;
-    height: 30px;
-    margin-top: 1rem;
-    border: none;
-    border-bottom: 1px solid var(--light-blue);
-    outline: none;
-    appearance: none;
-    resize: none;
+	min-height: 150px;
 }
 
-textarea::placeholder{
-    color: var(--dark-blue);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.btn{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #6C63FF;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
 }
 
-form button{
-    background-color: var(--dark-blue);
-    font-size: 20px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    color: white;
-    cursor: pointer;
-    width: 60%;
-    margin: 5px;
+.btn:hover{
+    background-color: lightblue;
 }
 
-form button:active{
-    transform: scale(0.99);
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
 }
+
+@media screen and (max-width: 880px){
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+	}
+}
+
 
 /*login */
 
