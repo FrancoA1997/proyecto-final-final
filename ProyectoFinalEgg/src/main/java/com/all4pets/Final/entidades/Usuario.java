@@ -9,7 +9,7 @@ import lombok.Data;
 public class Usuario {
   @Id  
     private String id;
-    private String nombreYapellido;
+    private String nombre;
     private Sexo sexo;
     private int edad;
     private Mascota mascota;

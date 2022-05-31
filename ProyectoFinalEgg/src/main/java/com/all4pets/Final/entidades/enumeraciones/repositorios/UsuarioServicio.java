@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.all4pets.Final.entidades.enumeraciones.repositorios;
 
-/**
- *
- * @author elecm
- */
+import com.all4pets.Final.entidades.Usuario;
+
+
 public class UsuarioServicio {
-    
+    public void crearUsuario(String nombre, String email, String contraseña){
+        Usuario u1 = new Usuario();
+        u1.setNombre(nombre);
+        u1.setContraseña(contraseña);
+        u1.setEmail(email);
+        
+    }
 }
