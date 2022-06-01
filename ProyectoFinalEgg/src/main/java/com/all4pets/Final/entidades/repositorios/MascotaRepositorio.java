@@ -1,5 +1,5 @@
 
-package com.all4pets.Final.entidades.enumeraciones.servicios;
+package com.all4pets.Final.entidades.repositorios;
 
 import org.springframework.stereotype.Repository;
 
