@@ -16,8 +16,12 @@ public class PortalControlador {
    @Autowired
    private UsuarioServicio usuarioServicio;
 
-    @GetMapping("all4pets")
-    public String index() {
+   @GetMapping("")
+   public String index(){
+       return "index.html";
+   }
+    @GetMapping("login")
+    public String login() {
         return "login.html";
     }
     @PostMapping("registro")

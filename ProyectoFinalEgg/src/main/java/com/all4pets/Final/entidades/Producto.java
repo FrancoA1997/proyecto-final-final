@@ -7,6 +7,8 @@ package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.entidades.enumeraciones.Tipo;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
@@ -18,6 +20,7 @@ public class Producto {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
    private String Id;
+   @Enumerated (EnumType.STRING)
    private Tipo tipo;
    private int precio;
    private boolean Stock;
