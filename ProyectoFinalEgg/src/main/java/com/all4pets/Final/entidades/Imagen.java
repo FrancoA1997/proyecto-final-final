@@ -18,6 +18,6 @@ public class Imagen {
     
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    private byte[] nombreImagen;
+    private byte[] contenido;
 
 }
