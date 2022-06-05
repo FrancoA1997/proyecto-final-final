@@ -43,7 +43,7 @@ public class UsuarioServicio implements UserDetailsService {
     }
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepo.BuscarPorEmail(mail);
+        Usuario usuario = usuarioRepo.buscarPorEmail(mail);
         if (usuario != null) {
             List<GrantedAuthority> permisos = new ArrayList<>();
                         
