@@ -1,9 +1,9 @@
 
-package com.all4pets.Final.entidades.enumeraciones.repositorios;
+package com.all4pets.Final.entidades.servicios;
 
 import com.all4pets.Final.entidades.Producto;
 import com.all4pets.Final.entidades.enumeraciones.Tipo;
-import com.all4pets.Final.entidades.enumeraciones.servicios.ProductoRepositorio;
+import com.all4pets.Final.entidades.repositorios.ProductoRepositorio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,24 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.entidades.enumeraciones.Tipo;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-@Data 
+
+@Data
+@Entity
 public class Producto {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    String Id;
-    Tipo tipo;
-    int precio;
-    boolean Stock;
-    String Descripcion;
+    private String id;
     
+    @Enumerated(EnumType.STRING)
+    private Tipo tipo;
+    
+    @OneToOne
+    private Imagen imagen;
+    
+    private int precio;
+    private boolean stock;
+    private String descripcion;
+
 }
