@@ -16,7 +16,7 @@ public class PortalControlador {
    @Autowired
    private UsuarioServicio usuarioServicio;
 
-   @GetMapping("")
+   @GetMapping("/index")
    public String index(){
        return "index.html";
    }
@@ -26,7 +26,7 @@ public class PortalControlador {
     }
     @PostMapping("registro")
     public  String Registro(@RequestParam String nombre,@RequestParam String email, @RequestParam String pswd ){
-       usuarioServicio.crearUsuario(nombre, email, nombre);
+       usuarioServicio.crearUsuario(nombre, email, pswd);
 
         return "login.html";
     }
