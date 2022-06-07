@@ -1,7 +1,7 @@
-
 package com.all4pets.Final.controladores;
 
-import com.all4pets.Final.entidades.servicios.UsuarioServicio;
+import com.all4pets.Final.excepciones.ExcepcionPropia;
+import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +16,18 @@ public class PortalControlador {
    @Autowired
    private UsuarioServicio usuarioServicio;
 
-   @GetMapping("")
+   @GetMapping("/index")
    public String index(){
        return "index.html";
    }
-    @GetMapping("login")
+    @GetMapping("/login")
     public String login() {
         return "login.html";
     }
     @PostMapping("registro")
-    public  String Registro(@RequestParam String nombre,@RequestParam String email, @RequestParam String pswd ){
-       usuarioServicio.crearUsuario(nombre, email, nombre);
+    public  String Registro(@RequestParam String nombre,@RequestParam String email, @RequestParam String pswd ) throws ExcepcionPropia{
+       
+        usuarioServicio.registrar(nombre, email, pswd);
 
         return "login.html";
     }

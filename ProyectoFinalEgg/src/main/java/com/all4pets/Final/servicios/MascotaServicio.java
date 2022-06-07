@@ -1,4 +1,4 @@
-package com.all4pets.Final.entidades.servicios;
+package com.all4pets.Final.servicios;
 
 import org.springframework.stereotype.Service;
 

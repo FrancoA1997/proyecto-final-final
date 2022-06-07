@@ -1,6 +1,6 @@
 package com.all4pets.Final.entidades;
 
-import com.all4pets.Final.entidades.enumeraciones.Tipo;
+import com.all4pets.Final.enumeraciones.Tipo;
 import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,8 +20,8 @@ public class Producto {
     @OneToOne
     private Imagen imagen;
     
-    private int precio;
-    private boolean stock;
+    private Integer precio;
+    private Boolean stock;
     private String descripcion;
 
 }
