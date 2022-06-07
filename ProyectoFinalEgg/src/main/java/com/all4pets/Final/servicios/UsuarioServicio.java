@@ -1,5 +1,6 @@
 package com.all4pets.Final.servicios;
 
+import com.all4pets.Final.entidades.Imagen;
 import com.all4pets.Final.entidades.Usuario;
 import com.all4pets.Final.enumeraciones.Rol;
 import com.all4pets.Final.enumeraciones.Sexo;
@@ -21,12 +22,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepo;
+    
+    @Autowired
+    private ImagenServicio imagenServicio;
 
     @Transactional
     public Usuario registrar(String nombre, String email, String clave) throws ExcepcionPropia {
@@ -46,7 +51,7 @@ public class UsuarioServicio implements UserDetailsService {
         return usuarioRepo.save(usuario);
     }
 
-    public void modificar(String id, String nombre, String email, String clave, Sexo sexo, Integer edad) throws ExcepcionPropia {
+    public void modificar(String id, String nombre, String email, String clave, Sexo sexo, Integer edad, MultipartFile archivo) throws ExcepcionPropia {
 
         validar(nombre, email, clave);
         
@@ -61,6 +66,9 @@ public class UsuarioServicio implements UserDetailsService {
 
             String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
             usuario.setClave(claveEncriptada);
+            
+            Imagen imagen = imagenServicio.multiPartToEntity(archivo);
+            usuario.setImagen(imagen);
             
             usuarioRepo.save(usuario);
         } else {

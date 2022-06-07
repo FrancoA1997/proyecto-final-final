@@ -18,6 +18,9 @@ public class Usuario {
     
     private String nombre;
     
+    @OneToOne
+    private Imagen imagen;
+    
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
     
