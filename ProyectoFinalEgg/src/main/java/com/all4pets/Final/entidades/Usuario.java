@@ -16,6 +16,7 @@ public class Usuario {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
+    @Column(nullable = false)
     private String nombre;
     
     @OneToOne
@@ -32,7 +33,9 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     
+    @Column(nullable = false)
     private String clave;
+    
     private String telefono;
     private String direccion;
     private Boolean alta;
