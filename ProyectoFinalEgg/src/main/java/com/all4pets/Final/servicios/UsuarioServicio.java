@@ -61,8 +61,38 @@ public class UsuarioServicio implements UserDetailsService {
 
             String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
             usuario.setClave(claveEncriptada);
+            
+            usuarioRepo.save(usuario);
+        } else {
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
         }
 
+    }
+    
+    public void deshabilitar(String id) throws ExcepcionPropia {
+        
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();         
+            usuario.setAlta(Boolean.FALSE);           
+            usuarioRepo.save(usuario);
+        } else {
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+        }
+        
+    }
+    
+    public void habilitar(String id) throws ExcepcionPropia {
+        
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();         
+            usuario.setAlta(Boolean.TRUE);           
+            usuarioRepo.save(usuario);
+        } else {
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+        }
+        
     }
 
     private void validar(String nombre, String email, String clave) throws ExcepcionPropia {
