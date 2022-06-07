@@ -26,9 +26,9 @@ public class Usuario {
     
     @OneToMany
     private List<Mascota> mascota;
-    
+    @Column(unique = true)
     private String email;
-    private String contraseña;
+    private String clave;
     private String telefono;
     private String direccion;
     private Boolean alta;

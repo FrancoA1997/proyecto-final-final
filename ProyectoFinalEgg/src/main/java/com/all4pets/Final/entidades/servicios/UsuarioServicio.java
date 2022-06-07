@@ -31,14 +31,14 @@ public class UsuarioServicio implements UserDetailsService {
    @Autowired
    private UsuarioRepositorio usuarioRepo;
     @Transactional
-    public void crearUsuario(String nombre, String email, String contraseña){
+    public void crearUsuario(String nombre, String email, String clave){
         Usuario u1 = new Usuario();
         u1.setNombre(nombre);
         
         u1.setEmail(email);
         u1.setRol(Rol.USUARIO);
-        String claveEncriptada = new BCryptPasswordEncoder().encode(contraseña);
-        u1.setContraseña(claveEncriptada);
+        String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
+        u1.setClave(claveEncriptada);
         usuarioRepo.save(u1);
     }
     @Override
@@ -56,7 +56,7 @@ public class UsuarioServicio implements UserDetailsService {
             HttpSession session = attr.getRequest().getSession(true);
             session.setAttribute("usuariosession", usuario);
 
-            User user = new User(usuario.getEmail(), usuario.getContraseña(), permisos);
+            User user = new User(usuario.getEmail(), usuario.getClave(), permisos);
             return user;
 
         } else {

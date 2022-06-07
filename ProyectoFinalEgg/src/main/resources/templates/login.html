@@ -13,7 +13,7 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 		
 			<div class="signup">
-				<form action="registro" method="Post">
+				<form action="registro" method="POST">
 					<label for="chk" aria-hidden="true">Registrarse</label>
 					<input type="text"  placeholder="Nombre de usuario"  name="nombre">
 					<input type="email"  placeholder="Email" name="email" >
@@ -23,11 +23,11 @@
 			</div>
 
 			<div class="login">
-				<form action="" method="GET">
+				<form action="/logincheck" method="POST">
 					<label for="chk" aria-hidden="true">Iniciar Sesion</label>
 					<input type="email" name="email" placeholder="Email/Nombre de usuario" required="">
 					<input type="password" name="pswd" placeholder="Contraseña" required="">
-					<button>Iniciar Sesion</button>
+					<button type="submit">Iniciar Sesion</button>
 				</form>
 			</div>
 			
