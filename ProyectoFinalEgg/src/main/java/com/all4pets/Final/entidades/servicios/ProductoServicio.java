@@ -1,18 +1,21 @@
-
 package com.all4pets.Final.entidades.servicios;
 
 import com.all4pets.Final.entidades.Producto;
-import com.all4pets.Final.entidades.enumeraciones.Tipo;
+import com.all4pets.Final.enumeraciones.Tipo;
 import com.all4pets.Final.entidades.repositorios.ProductoRepositorio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ProductoServicio {
+    
     @Autowired
     private ProductoRepositorio productoRepo;
+    
     @Transactional
-    public void crearProducto(String Id, Tipo tipo, int precio, boolean stock, String descripcion){
+    public void crearProducto(String Id, Tipo tipo, Integer precio, Boolean stock, String descripcion){
+        
         Producto p1 = new Producto();
         p1.setTipo(tipo);
         p1.setPrecio(precio);

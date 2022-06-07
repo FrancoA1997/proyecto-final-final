@@ -1,8 +1,7 @@
 package com.all4pets.Final.entidades;
 
-import com.all4pets.Final.entidades.enumeraciones.Rol;
-import com.all4pets.Final.entidades.enumeraciones.Sexo;
-
+import com.all4pets.Final.enumeraciones.Rol;
+import com.all4pets.Final.enumeraciones.Sexo;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
@@ -22,12 +21,14 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
     
-    private int edad;
+    private Integer edad;
     
     @OneToMany
     private List<Mascota> mascota;
+    
     @Column(unique = true)
     private String email;
+    
     private String clave;
     private String telefono;
     private String direccion;

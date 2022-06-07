@@ -1,15 +1,13 @@
 package com.all4pets.Final.entidades.servicios;
 
 import com.all4pets.Final.entidades.Usuario;
-import com.all4pets.Final.entidades.enumeraciones.Rol;
+import com.all4pets.Final.enumeraciones.Rol;
 import com.all4pets.Final.entidades.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -29,13 +27,14 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Transactional
     public void crearUsuario(String nombre, String email, String clave) {
+        
         Usuario u1 = new Usuario();
         u1.setNombre(nombre);
-
         u1.setEmail(email);
         u1.setRol(Rol.USUARIO);
         String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
         u1.setClave(claveEncriptada);
+        
         usuarioRepo.save(u1);
     }
 
