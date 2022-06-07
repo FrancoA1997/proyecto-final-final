@@ -2,7 +2,7 @@ package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.entidades.enumeraciones.Rol;
 import com.all4pets.Final.entidades.enumeraciones.Sexo;
-import java.util.ArrayList;
+
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
