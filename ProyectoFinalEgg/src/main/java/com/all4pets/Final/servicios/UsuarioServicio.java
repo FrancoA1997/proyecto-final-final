@@ -2,6 +2,7 @@ package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Usuario;
 import com.all4pets.Final.enumeraciones.Rol;
+import com.all4pets.Final.excepciones.ExcepcionPropia;
 import com.all4pets.Final.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,20 +27,42 @@ public class UsuarioServicio implements UserDetailsService {
     private UsuarioRepositorio usuarioRepo;
 
     @Transactional
-    public void crearUsuario(String nombre, String email, String clave) {
+    public Usuario registrar(String nombre, String email, String clave) throws ExcepcionPropia {
         
-        Usuario u1 = new Usuario();
-        u1.setNombre(nombre);
-        u1.setEmail(email);
-        u1.setRol(Rol.USUARIO);
+        validar(nombre, email, clave);
+        
+        Usuario usuario = new Usuario();
+        
+        usuario.setNombre(nombre);
+        usuario.setEmail(email);
+        usuario.setAlta(Boolean.TRUE);
+        usuario.setRol(Rol.USUARIO);
+        
         String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
-        u1.setClave(claveEncriptada);
+        usuario.setClave(claveEncriptada);
         
-        usuarioRepo.save(u1);
+        return usuarioRepo.save(usuario);
     }
 
+    public void validar(String nombre, String email, String clave) throws ExcepcionPropia {
+        
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su nombre");
+        }
+        
+        if (email == null || email.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su email");
+        }
+        
+        if (clave == null || clave.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su clave");
+        }
+        
+    }
+    
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+        
         Usuario usuario = usuarioRepo.buscarPorEmail(mail);
         if (usuario != null) {
             List<GrantedAuthority> permisos = new ArrayList<>();
