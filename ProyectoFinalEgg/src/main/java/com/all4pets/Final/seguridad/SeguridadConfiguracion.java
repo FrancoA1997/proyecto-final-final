@@ -1,6 +1,6 @@
 package com.all4pets.Final.seguridad;
 
-import com.all4pets.Final.entidades.servicios.UsuarioServicio;
+import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

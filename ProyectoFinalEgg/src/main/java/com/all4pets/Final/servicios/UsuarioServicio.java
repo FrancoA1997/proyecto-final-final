@@ -1,8 +1,8 @@
-package com.all4pets.Final.entidades.servicios;
+package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Usuario;
 import com.all4pets.Final.enumeraciones.Rol;
-import com.all4pets.Final.entidades.repositorios.UsuarioRepositorio;
+import com.all4pets.Final.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;

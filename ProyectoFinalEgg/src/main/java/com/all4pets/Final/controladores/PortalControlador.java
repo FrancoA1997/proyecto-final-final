@@ -1,7 +1,7 @@
 
 package com.all4pets.Final.controladores;
 
-import com.all4pets.Final.entidades.servicios.UsuarioServicio;
+import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

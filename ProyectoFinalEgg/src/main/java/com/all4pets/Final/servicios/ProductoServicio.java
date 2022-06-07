@@ -1,8 +1,8 @@
-package com.all4pets.Final.entidades.servicios;
+package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Producto;
 import com.all4pets.Final.enumeraciones.Tipo;
-import com.all4pets.Final.entidades.repositorios.ProductoRepositorio;
+import com.all4pets.Final.repositorios.ProductoRepositorio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
