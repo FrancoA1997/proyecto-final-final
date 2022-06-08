@@ -12,12 +12,40 @@ body{
     background-size: cover;
 	
 }
+/*
+nav - logo
+*/
+a{text-decoration: none;}
+
+h1{
+	font-family: 'Cafe Matcha';
+    font-weight: 300;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #6C63FF;
+}
+
+.logo{
+	position: fixed;
+	top: 0;	
+	
+}
+
+.logo a{
+    font-style: bold;
+    color: var(--light-blue);
+    margin: 0 20px;
+}
+.logo a:hover{color: #6C63FF;}
+
+
+/*
+panel inicio
+*/
 .signup{
 	height: 91%;
 	margin: 10px auto;
 }
-
-
 
 .main{
 	width: 500px;
@@ -26,6 +54,8 @@ body{
 	border-radius: 45px;
 	box-shadow: 5px 20px 50px #000;
 }
+
+
 
 
 

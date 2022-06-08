@@ -1,8 +1,7 @@
 package com.all4pets.Final.entidades;
 
-import com.all4pets.Final.entidades.enumeraciones.Rol;
-import com.all4pets.Final.entidades.enumeraciones.Sexo;
-
+import com.all4pets.Final.enumeraciones.Rol;
+import com.all4pets.Final.enumeraciones.Sexo;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
@@ -17,18 +16,26 @@ public class Usuario {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
+    @Column(nullable = false)
     private String nombre;
+    
+    @OneToOne
+    private Imagen imagen;
     
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
     
-    private int edad;
+    private Integer edad;
     
     @OneToMany
     private List<Mascota> mascota;
+    
     @Column(unique = true)
     private String email;
+    
+    @Column(nullable = false)
     private String clave;
+    
     private String telefono;
     private String direccion;
     private Boolean alta;
