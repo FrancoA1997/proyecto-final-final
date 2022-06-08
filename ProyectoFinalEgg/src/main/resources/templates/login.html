@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Iniciar Sesion</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style-login.css">
+<link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
+</head>
+<body>
+
+
+	
+		
+			<h1 class="logo" > <a href="index.html">All 4 Pets</a></h1>
+			
+		
+	
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+		
+			<div class="signup">
+				<form action="registro" method="POST">
+					<label for="chk" aria-hidden="true">Registrarse</label>
+					<input type="text"  placeholder="Nombre de usuario"  name="nombre">
+					<input type="email"  placeholder="Email" name="email" >
+					<input type="password"  placeholder="Contraseña" name="pswd">
+					<button>Registrarse</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form action="/logincheck" method="POST">
+					<label for="chk" aria-hidden="true">Iniciar Sesion</label>
+					<input type="email" name="email" placeholder="Email/Nombre de usuario" >
+					<input type="password" name="pswd" placeholder="Contraseña" >
+					<button type="submit">Iniciar Sesion</button>
+				</form>
+			</div>
+			
+	</div>
+	
+</body>
+</html>
