@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("usuario")
 public class UsuarioControlador {
-    @Autowired
-   private UsuarioServicio usuarioServicio;
 
-    
-   @GetMapping("login")
+    @Autowired
+    private UsuarioServicio usuarioServicio;
+
+    @GetMapping("login")
     public String login() {
         return "login.html";
     }
-    
+
     @PostMapping("registro")
-    public  String Registro(@RequestParam String nombre,@RequestParam String email, @RequestParam String pswd ) throws ExcepcionPropia{
-       
+    public String Registro(@RequestParam String nombre, @RequestParam String email, @RequestParam String pswd) throws ExcepcionPropia {
+
         usuarioServicio.registrar(nombre, email, pswd);
 
         return "login.html";
     }
-    
+
     @GetMapping("perfil")
     public String perfil() {
         return "perfilUsuario.html";
