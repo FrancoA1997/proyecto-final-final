@@ -77,7 +77,7 @@ public class MascotaServicio {
             mascota.setAlta(Boolean.TRUE);
             mascotaRepo.save(mascota);
         } else {
-            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+            throw new ExcepcionPropia("No se encontro la mascota solicitada");
         }
     }
 }
