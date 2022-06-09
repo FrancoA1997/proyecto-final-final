@@ -13,23 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class PortalControlador {
     
-   @Autowired
-   private UsuarioServicio usuarioServicio;
-
+ 
    @GetMapping("/index")
    public String index(){
        return "index.html";
    }
-    @GetMapping("/login")
-    public String login() {
-        return "login.html";
+   
+     @GetMapping("logeado")
+    public String logeado() {
+        return "iL.html";
     }
-    @PostMapping("registro")
-    public  String Registro(@RequestParam String nombre,@RequestParam String email, @RequestParam String pswd ) throws ExcepcionPropia{
-       
-        usuarioServicio.registrar(nombre, email, pswd);
-
-        return "login.html";
-    }
-
 }

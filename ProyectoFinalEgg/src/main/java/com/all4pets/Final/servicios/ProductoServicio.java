@@ -2,12 +2,8 @@ package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Producto;
 import com.all4pets.Final.enumeraciones.Tipo;
-<<<<<<< Updated upstream
 import com.all4pets.Final.excepciones.ExcepcionPropia;
-import com.all4pets.Final.repositorios.ProductoRepositorio;
 import java.util.Optional;
-=======
->>>>>>> Stashed changes
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
