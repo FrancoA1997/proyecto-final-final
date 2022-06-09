@@ -1,3 +1,4 @@
+
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.enumeraciones.Rol;
@@ -10,15 +11,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Data
 @Entity
 public class Usuario {
-
+    
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
+
     @Column(nullable = false)
     private String nombre;
-    
+
     @OneToOne
     private Imagen imagen;
     

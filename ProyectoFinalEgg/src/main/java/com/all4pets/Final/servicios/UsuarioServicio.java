@@ -5,7 +5,6 @@ import com.all4pets.Final.entidades.Usuario;
 import com.all4pets.Final.enumeraciones.Rol;
 import com.all4pets.Final.enumeraciones.Sexo;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
-import com.all4pets.Final.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import com.all4pets.Final.repositorios.UsuarioRepositorio;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {

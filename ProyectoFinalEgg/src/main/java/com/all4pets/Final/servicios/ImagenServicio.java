@@ -2,15 +2,14 @@ package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Imagen;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
-import com.all4pets.Final.repositorios.ImagenRepositorio;
 import java.io.IOException;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import com.all4pets.Final.repositorios.ImagenRepositorio;
 
 @Service
 public class ImagenServicio {
