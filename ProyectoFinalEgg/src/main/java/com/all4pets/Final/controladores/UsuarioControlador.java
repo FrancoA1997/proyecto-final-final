@@ -4,6 +4,7 @@ import com.all4pets.Final.excepciones.ExcepcionPropia;
 import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,14 @@ public class UsuarioControlador {
     }
 
     @PostMapping("registro")
-    public String Registro(@RequestParam String nombre, @RequestParam String email, @RequestParam String pswd) throws ExcepcionPropia {
+    public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String email, @RequestParam String pswd) throws ExcepcionPropia {
 
-        usuarioServicio.registrar(nombre, email, pswd);
+        try {
+            usuarioServicio.registrar(nombre, email, pswd);
+            modelo.put("exito", "Registrado con éxito");
+        } catch (Exception e) {
+            modelo.put("error", "Error al registrarse");
+        }
 
         return "login.html";
     }
@@ -32,6 +38,11 @@ public class UsuarioControlador {
     @GetMapping("perfil")
     public String perfil() {
         return "perfil.html";
+    }
+
+    @PostMapping("modificar")
+    public String modificar() {
+        return "perfilUsuario.html";
     }
 
 }

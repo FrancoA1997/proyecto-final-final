@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,6 +22,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import com.all4pets.Final.repositorios.UsuarioRepositorio;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
@@ -33,7 +34,7 @@ public class UsuarioServicio implements UserDetailsService {
     @Autowired
     private ImagenServicio imagenServicio;
 
-    @Transactional
+    @Transactional(propagation = Propagation.NESTED)
     public Usuario registrar(String nombre, String email, String clave) throws ExcepcionPropia {
 
         validar(nombre, email, clave);
@@ -51,21 +52,19 @@ public class UsuarioServicio implements UserDetailsService {
         return usuarioRepo.save(usuario);
     }
 
-    public void modificar(String id, String nombre, String email, String clave, Sexo sexo, Integer edad, MultipartFile archivo) throws ExcepcionPropia {
+    @Transactional(propagation = Propagation.NESTED)
+    public void modificar(String id, Sexo sexo, Integer edad, String telefono, String direccion, MultipartFile archivo) throws ExcepcionPropia {
 
-        validar(nombre, email, clave);
+        validarModificacion(sexo, edad, telefono, direccion);
         
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
 
-            usuario.setNombre(nombre);
-            usuario.setEmail(email);
             usuario.setSexo(sexo);
             usuario.setEdad(edad);
-
-            String claveEncriptada = new BCryptPasswordEncoder().encode(clave);
-            usuario.setClave(claveEncriptada);
+            usuario.setTelefono(telefono);
+            usuario.setDireccion(direccion);
             
             Imagen imagen = imagenServicio.multiPartToEntity(archivo);
             usuario.setImagen(imagen);
@@ -118,7 +117,32 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
     }
+    
+    public void validarModificacion(Sexo sexo, Integer edad, String telefono, String direccion) throws ExcepcionPropia {
+        
+        if (sexo == null || sexo.toString().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su sexo");
+        }
+        
+        if (edad == null) {
+            throw new ExcepcionPropia("Por favor, indique su edad");
+        }
+        
+        if (telefono == null || telefono.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su telefono");
+        }
+        
+        if (direccion == null || direccion.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su direccion");
+        }
+        
+    }
 
+    @Transactional(readOnly = true)
+    public List<Usuario> mostrarTodos(){
+        return usuarioRepo.findAll();
+    }
+    
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
