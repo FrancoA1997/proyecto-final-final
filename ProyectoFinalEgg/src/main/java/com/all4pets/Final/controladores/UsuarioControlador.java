@@ -27,11 +27,14 @@ public class UsuarioControlador {
 
         try {
             usuarioServicio.registrar(nombre, email, pswd);
-            modelo.put("exito", "Registrado con éxito");
-        } catch (Exception e) {
-            modelo.put("error", "Error al registrarse");
+        } catch (ExcepcionPropia e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
+            modelo.put("pswd", pswd);
         }
 
+        modelo.put("exito", "Registrado con éxito");
         return "login.html";
     }
 
