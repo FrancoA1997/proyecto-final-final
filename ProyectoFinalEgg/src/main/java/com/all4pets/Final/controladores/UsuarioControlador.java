@@ -31,7 +31,7 @@ public class UsuarioControlador {
 
     @GetMapping("perfil")
     public String perfil() {
-        return "perfilUsuario.html";
+        return "perfil.html";
     }
 
 }
