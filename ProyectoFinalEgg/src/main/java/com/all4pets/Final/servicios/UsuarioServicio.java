@@ -143,6 +143,15 @@ public class UsuarioServicio implements UserDetailsService {
         return usuarioRepo.findAll();
     }
     
+    @Transactional(propagation = Propagation.NESTED)
+    public void borrarPorId(String id){
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        
+        if(respuesta.isPresent()) {
+            usuarioRepo.delete(respuesta.get());
+        }
+    }
+    
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
