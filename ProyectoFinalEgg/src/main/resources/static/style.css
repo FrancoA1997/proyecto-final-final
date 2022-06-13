@@ -80,7 +80,7 @@ ul li{list-style: none;}
 
 nav .logo{
     padding:0px 55px ;
-    background: url(imgs/filled_pets_icon-icons.com_59360.png) no-repeat;
+    background: url(imgs/icono.png) no-repeat;
     font-family: 'Cafe Matcha';
     color: #6C63FF;
 }
@@ -193,7 +193,7 @@ hero
 .image__pet{
     width: 40%;
     height: 100%;
-    background: url(imgs/undraw_dog_walking_re_l61p.svg);
+    background: url(imgs/svg-index1.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -250,7 +250,7 @@ hero
     width: 100%;
     height: 0;
     border-radius: 10px;
-    background: url(imgs/stainless-images-RUgbGfdma6U-unsplash.jpg);
+    background: url(imgs/adopta-index.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     transition: height 0.5s ease-in-out;
@@ -342,7 +342,7 @@ carta 2
     width: 100%;
     height: 0;
     border-radius: 10px;
-    background: url(imgs/eric-ward-ISg37AI2A-s-unsplash.jpg);
+    background: url(imgs/tienda-index.jpg);
     background-position: bottom;
     background-size:cover;
     background-repeat: no-repeat;
@@ -388,7 +388,7 @@ carta 2
 
 .image__pet2{
     padding: 60px 0px;
-    background: url(imgs/undraw_pet_adoption_-2-qkw.svg);
+    background: url(imgs/svg-index2.svg);
     background-position: 14% ;
     background-size: contain;
     background-repeat: no-repeat;
@@ -450,7 +450,7 @@ carta 2
 }
 
 .left{
-	background: url("imgs/undraw_contract_re_ves9.svg") no-repeat center;
+	background: url("imgs/svg-index.svg") no-repeat center;
 	background-size: cover;
 	height: 100%;
 }
