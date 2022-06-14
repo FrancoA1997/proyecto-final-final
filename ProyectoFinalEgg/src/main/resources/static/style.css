@@ -193,11 +193,8 @@ hero
 .image__pet{
     width: 40%;
     height: 100%;
-<<<<<<< HEAD
     background-image: url("/imgs/svg-index2.svg"); 
-=======
     background-image: url("imgs/svg-index1.svg");
->>>>>>> developer
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
