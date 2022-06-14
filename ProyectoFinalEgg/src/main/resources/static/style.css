@@ -80,7 +80,7 @@ ul li{list-style: none;}
 
 nav .logo{
     padding:0px 55px ;
-    background: url(imgs/icono.png) no-repeat;
+    background: url(icono.png) no-repeat;
     font-family: 'Cafe Matcha';
     color: #6C63FF;
 }
@@ -193,7 +193,7 @@ hero
 .image__pet{
     width: 40%;
     height: 100%;
-    background: url(imgs/svg-index1.svg);
+    background-image: url("imgs/svg-index1.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -388,7 +388,7 @@ carta 2
 
 .image__pet2{
     padding: 60px 0px;
-    background: url(imgs/svg-index2.svg);
+    background: url(../imgs/svg-index2.svg);
     background-position: 14% ;
     background-size: contain;
     background-repeat: no-repeat;
