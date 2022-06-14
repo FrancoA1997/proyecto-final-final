@@ -1,0 +1,314 @@
+<!--
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+anotaciones de columnas, animacion carrito o cambia a boton 
+ESTILOS ver responsivge
+cambiar imagines de productos, 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="tienda-style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+  </head>
+
+  <body>
+    
+    <nav class="center__row">
+      <h1 class="logo">All 4 Pets</h1>
+      <ul class="center__row">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="#help">Servicios</a></li>
+        <li class="nav-item"><a href="#quienessomos">Quienes Somos</a></li>
+        <li class="nav-item"><a href="#contacto">Contacto</a></li>
+        <li class="nav-item">
+          <a th:href="@{usuario/login}">Inicia Sesion</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <div class="container">
+        <div class="col-md-4 w3ls_dresses_grid_left">
+          <div class="caja-izquierda">
+            <h3>Perros</h3>
+            <div class="caja-izquierda_sub">
+              <div class="ecommerce_dres-type">
+                <ul>
+                  <li><a href="#">Alimentos</a></li>
+                  <li><a href="#">Juguetes</a></li>
+                  <li><a href="#">Accesorios</a></li>
+                  <li><a href="#">Otros</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="caja-izquierda">
+            <h3>Gatos</h3>
+            <div class="caja-izquierda_sub">
+              <div class="ecommerce_color">
+                <ul>
+                  <li><a href="#">Alimentos</a></li>
+                  <li><a href="#">Juguetes</a></li>
+                  <li><a href="#">Accesorios</a></li>
+                  <li><a href="#">Otro</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="caja-izquierda">
+            <h3>Otros</h3>
+            <div class="caja-izquierda_sub">
+              <div class="ecommerce_color ecommerce_size">
+                <ul>
+                  <li><a href="#">Alimentos</a></li>
+                  <li><a href="#">Juguetes</a></li>
+                  <li><a href="#">Accesorios</a></li>
+                  <li><a href="#">Otro</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 ">
+          <div class="">
+            <div
+              class="col-md-4 animacion wp1 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <!--la animacion del cart etqueta a^^ al parecer  no le puedo sacar el js a esto ¬_¬ -->
+              <!--porque manda a un single?-->
+
+              <div class="product-img">
+                <img src="images\excellent-cat.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="50.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <h4>Purina Adulto</h4>
+              <h5>$50.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp2 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\7vidas.png" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="20.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>7Vidas Adultos</h4>
+              <h5>$20.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp3 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\whiskas-sobrecitos.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="30.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Whiskas sobrecitos</h4>
+              <h5>$30.00</h5>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="women-set2">
+            <div
+              class="col-md-4 animacion wp4 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\canita.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="80.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Cañita</h4>
+              <h5>$80.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp5 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\ratitas.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="120.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Ratitas</h4>
+              <h5>$120.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp6 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\torre.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="30.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Torre</h4>
+              <h5>$30.00</h5>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="women-set3">
+            <div
+              class="col-md-4 animacion mp7 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\comederos.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                    
+                    <input type="hidden" name="amount" value="110.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Comederos</h4>
+              <h5>$110.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp8 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\collares.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                   
+                    <input type="hidden" name="amount" value="180.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Collar</h4>
+              <h5>$180.00</h5>
+            </div>
+            <div
+              class="col-md-4 animacion wp9 animated wow slideInUp"
+              data-wow-delay=".5s"
+            >
+              <div class="product-img">
+                <img src="images\bandeja-sanitaria.jpg" alt="" />
+                <div class="p-mask">
+                  <form action="#" method="post">
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="add" value="1" />
+                   
+                    <input type="hidden" name="amount" value="130.00" />
+                    <button type="submit" class="w3ls-cart pw3ls-cart">
+                      <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                      cart
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <h4>Bandeja sanitaria</h4>
+              <h5>$130.00</h5>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
