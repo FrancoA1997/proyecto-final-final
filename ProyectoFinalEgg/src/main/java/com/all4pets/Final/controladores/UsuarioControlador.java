@@ -4,6 +4,7 @@ import com.all4pets.Final.enumeraciones.Sexo;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
 import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,10 @@ public class UsuarioControlador {
     public String login() {
         return "login.html";
     }
+    @GetMapping("/logout")
+    public String logout() {
+        return "index.html";
+    }
 
     @PostMapping("registro")
     public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String email, @RequestParam String pswd) throws ExcepcionPropia {
@@ -39,7 +44,7 @@ public class UsuarioControlador {
         modelo.put("exito", "Registrado con éxito");
         return "login.html";
     }
-
+@PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("perfil")
     public String perfil() {
         return "perfil.html";
