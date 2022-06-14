@@ -21,9 +21,13 @@ public class UsuarioControlador {
     private UsuarioServicio usuarioServicio;
 
     @GetMapping("login")
-    public String login() {
+    public String login(@RequestParam(required = false) String error, ModelMap modelo) {
+        if (error != null) {
+            modelo.put("error", "Email o Clave incorrectos");
+        }
         return "login.html";
     }
+
     @GetMapping("/logout")
     public String logout() {
         return "index.html";
@@ -44,7 +48,8 @@ public class UsuarioControlador {
         modelo.put("exito", "Registrado con éxito");
         return "login.html";
     }
-@PreAuthorize("hasAnyRole('ROLE_USUARIO')")
+
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("perfil")
     public String perfil() {
         return "perfil.html";
@@ -52,7 +57,7 @@ public class UsuarioControlador {
 
     @PostMapping("modificar")
     public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion, @RequestParam MultipartFile archivo) throws ExcepcionPropia {
-        
+
         try {
             usuarioServicio.modificar(id, sexo, edad, telefono, direccion, archivo);
         } catch (ExcepcionPropia e) {
