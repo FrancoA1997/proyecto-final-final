@@ -30,7 +30,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepo;
-    
+
     @Autowired
     private ImagenServicio imagenServicio;
 
@@ -53,10 +53,10 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void modificar(String id, Sexo sexo, Integer edad, String telefono, String direccion, MultipartFile archivo) throws ExcepcionPropia {
+    public void modificar(String id, Sexo sexo, Integer edad, String telefono, String direccion) throws ExcepcionPropia {
 
         validarModificacion(sexo, edad, telefono, direccion);
-        
+
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
@@ -65,41 +65,52 @@ public class UsuarioServicio implements UserDetailsService {
             usuario.setEdad(edad);
             usuario.setTelefono(telefono);
             usuario.setDireccion(direccion);
-            
-            Imagen imagen = imagenServicio.multiPartToEntity(archivo);
-            usuario.setImagen(imagen);
-            
+
             usuarioRepo.save(usuario);
         } else {
             throw new ExcepcionPropia("No se encontro el usuario solicitado");
         }
 
     }
-    
-    public void deshabilitar(String id) throws ExcepcionPropia {
-        
+
+    @Transactional(propagation = Propagation.NESTED)
+    public void actualizarImagen(String id, MultipartFile archivo) throws ExcepcionPropia {
+
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
+
         if (respuesta.isPresent()) {
-            Usuario usuario = respuesta.get();         
-            usuario.setAlta(Boolean.FALSE);           
-            usuarioRepo.save(usuario);
-        } else {
-            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+            Usuario usuario = respuesta.get();
+            
+            Imagen imagen = imagenServicio.multiPartToEntity(archivo);
+            usuario.setImagen(imagen);
         }
-        
+
     }
-    
-    public void habilitar(String id) throws ExcepcionPropia {
-        
+
+    public void deshabilitar(String id) throws ExcepcionPropia {
+
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
-            Usuario usuario = respuesta.get();         
-            usuario.setAlta(Boolean.TRUE);           
+            Usuario usuario = respuesta.get();
+            usuario.setAlta(Boolean.FALSE);
             usuarioRepo.save(usuario);
         } else {
             throw new ExcepcionPropia("No se encontro el usuario solicitado");
         }
-        
+
+    }
+
+    public void habilitar(String id) throws ExcepcionPropia {
+
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            usuario.setAlta(Boolean.TRUE);
+            usuarioRepo.save(usuario);
+        } else {
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+        }
+
     }
 
     private void validar(String nombre, String email, String clave) throws ExcepcionPropia {
@@ -117,44 +128,41 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
     }
-    
+
     public void validarModificacion(Sexo sexo, Integer edad, String telefono, String direccion) throws ExcepcionPropia {
-        
+
         if (sexo == null || sexo.toString().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique su sexo");
         }
-        
+
         if (edad == null) {
             throw new ExcepcionPropia("Por favor, indique su edad");
         }
-        
+
         if (telefono == null || telefono.trim().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique su telefono");
         }
-        
+
         if (direccion == null || direccion.trim().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique su direccion");
         }
-        
+
     }
 
     @Transactional(readOnly = true)
-    public List<Usuario> mostrarTodos(){
+    public List<Usuario> mostrarTodos() {
         return usuarioRepo.findAll();
     }
-    
+
     @Transactional(propagation = Propagation.NESTED)
-    public void borrarPorId(String id){
+    public void borrarPorId(String id) {
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
-        
-        if(respuesta.isPresent()) {
+
+        if (respuesta.isPresent()) {
             usuarioRepo.delete(respuesta.get());
         }
     }
-    public void actualizarImagen(Imagen imagen, String id){
-           Optional<Usuario> respuesta = usuarioRepo.findById(id);
-        
-    }
+
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
@@ -179,5 +187,5 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
     }
-    
+
 }

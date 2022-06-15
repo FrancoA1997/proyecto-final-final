@@ -2,8 +2,10 @@ package com.all4pets.Final.controladores;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -13,19 +15,29 @@ public class PortalControlador {
     public String index() {
         return "index.html";
     }
-@PreAuthorize("hasAnyRole('ROLE_USUARIO')")
+
+    @GetMapping("login")
+    public String login(@RequestParam(required = false) String error, ModelMap modelo) {
+        if (error != null) {
+            modelo.put("error", "Email o Clave incorrectos");
+        }
+        return "login.html";
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("inicio")
     public String inicio() {
         return "iL.html";
     }
-     @GetMapping("tienda")
+
+    @GetMapping("tienda")
     public String tienda() {
         return "tienda.html";
     }
-       @GetMapping("adopciones")
+
+    @GetMapping("adopciones")
     public String adopciones() {
         return "adopciones.html";
     }
-    
-    
+
 }
