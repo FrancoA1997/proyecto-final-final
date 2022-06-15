@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>Cargar Mascota</title>
@@ -10,40 +10,37 @@
 
         <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
 
-        <link rel="stylesheet" href="/cargaMascota.css">
+        <link rel="stylesheet" href="Style-cargaMascota.css">
     </head>
 
     <body>
 
         <div class="wrapper">
             <div class="inner">
-                <form action="cargar" method="POST">
+                <form action="cargarMascota" method="POST">
                     <h3>Cargar Mascota Encontrada</h3>
                     <p>Llene los datos sobre la mascota con datos claves</p>
                     <label class="form-group">
-                        <input type="text" name="nombre" class="form-control"  required>
+                        <input type="text" name="nombre" class="form-control"  >
                         <span>Nombre</span>
                         <span class="border"></span>
                     </label>
-                    <label class="form-group" >
-                        <select  class="form-control border-primary" name="estado" >
-                            <option th:each="estados:${estados}"
-                                    th:value="${estados.estado}"
-                                    th:text="${estados.estado}"/>
-                        </select>
-                        <span>Mas info</span>
-                        <span class="border"></span>
-                    </label>
                     <label class="form-group">
-                        <input type="text" name="ubicacion" class="form-control"  required>
-                        <span >Ubicacion donde fue encontrad</span>
+                        <input type="text" name="ubicacion" class="form-control"  >
+                        <span >Ubicacion donde fue encontrada la mascota</span>
                         <span class="border"></span>
                     </label>
                     <label class="form-group" >
-                        <input name="info"  class="form-control" >
-                        <span>Mas info</span>
+                        <input name="info" class="form-control">
+                        <span >Mas info</span>
                         <span class="border"></span>
                     </label>
+                    <select name="estado1" class="opcion">
+                        <option th:each="estado:${estado}"
+                                th:value="${estado.displayValue}"
+                                th:text="${estado.displayValue}"/>
+                        
+                    </select>
                     <label class="file">
                         <div id="div_file">
                             <p id="texto">Cargar imagen</p>
@@ -59,5 +56,5 @@
             </div>
         </div>
 
-    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    </body>
 </html>
