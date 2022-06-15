@@ -21,7 +21,7 @@
                     <li><a href="#help">Servicios</a></li>
                     <li><a href="#quienessomos">Quienes Somos</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a th:href="@{usuario/perfil}">Perfil</a></li>
+                    <li><a th:href="@{usuario/perfil(id=${session.usuariosession.id})}">Perfil</a></li>
                      <li><a th:href="@{/logout}">Cerrar sesion</a></li>
                     
                     <!-- darkmode -->
@@ -47,7 +47,7 @@
                         Encontra todo para tu mascota
                     </h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error aut ea fuga cum? Odit, sed culpa harum laborum excepturi quibusdam!</p>
-                    <button><a href="login.html">Ingresa</a></button>
+                    <button><a href="/logout">Cerrar Sesion</a></button>
 
                 </div>
                 <div class="image__pet"></div>
@@ -66,7 +66,7 @@
                         <h3>Agrega al carrito los productos que necesitas</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quam ex neque.</p>
                         <div class="card__link container__center">
-                            <a href="tienda.html">Compra Ahora</a>
+                            <a href="/tienda">Compra Ahora</a>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                         <h3>Agranda tu familia </h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quam ex neque.</p>
                         <div class="card__link container__center">
-                            <a href="adopciones.html">Adopta Ahora</a>
+                            <a href="/adopciones">Adopta Ahora</a>
                         </div>
                     </div>   
             </div>

@@ -71,5 +71,14 @@ public class UsuarioControlador {
         modelo.put("exito", "Modificacion realizada con éxito");
         return "perfil.html";
     }
+    
+    
+    
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
+    @GetMapping("cargarMascota")
+    public String cargarMascota() {
+        return "CargarMascota.html";
+    }
+    
 
 }
