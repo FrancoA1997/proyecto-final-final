@@ -1,5 +1,6 @@
 package com.all4pets.Final.controladores;
 
+import com.all4pets.Final.enumeraciones.Estado;
 import com.all4pets.Final.enumeraciones.Sexo;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
 import com.all4pets.Final.servicios.UsuarioServicio;
@@ -43,7 +44,8 @@ public class UsuarioControlador {
 
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("perfil")
-    public String perfil() {
+    public String perfil(@RequestParam String id) {
+        
         return "perfil.html";
     }
 
@@ -86,8 +88,13 @@ public class UsuarioControlador {
     
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("cargarMascota")
-    public String cargarMascota() {
-        return "cargarMascota.html";
+    public String cargarMascota(ModelMap model, Estado displayValue) {
+        
+       
+       model.addAttribute("estado", displayValue);
+        
+        return "CargarMascota.html";
     }
     
+
 }

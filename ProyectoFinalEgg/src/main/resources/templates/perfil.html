@@ -18,9 +18,12 @@
                                             <div class="perfil-usuario-portada">
                                                 <div class="perfil-usuario-avatar">
                                                    <!--   <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">-->
-                                                        <input type="file" class="boton-avatar">
-                                                            <i class="far fa-image"></i>
-                                                        
+                                                   <form action="cargarImagen" method="POST" enctype="multipart/form-data">
+                                                        <input type="file" name="imagen" class="boton-avatar">
+                                                               <input type="hidden" name="id" value="(id=${session.usuariosession.id})" class="boton-avatar">
+                                                            <i class="far fa-image"></i>\
+                                                            
+                                                   </form>>
                                                 </div>
                                                 <button type="button" class="boton-edicion">
                                                     Editar datos
