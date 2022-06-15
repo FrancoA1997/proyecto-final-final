@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Iniciar Sesion</title>
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
@@ -22,9 +22,10 @@
 			<div class="signup">
 				<form action="registro" method="POST">
 					<label for="chk" aria-hidden="true">Registrarse</label>
-					<input type="text"  placeholder="Nombre y apellido"  name="nombre">
-					<input type="email"  placeholder="Email" name="email" >
-					<input type="password"  placeholder="Contraseña" name="pswd">
+                                        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+					<input type="text"  placeholder="Nombre y apellido"  name="nombre" th:value="${nombre}">
+					<input type="email"  placeholder="Email" name="email" th:value="${email}">
+					<input type="password"  placeholder="Contraseña" name="pswd" th:value="${pswd}">
 					<button>Registrarse</button>
 				</form>
 			</div>
@@ -32,6 +33,7 @@
 			<div class="login">
 				<form action="/logincheck" method="POST">
 					<label for="chk" aria-hidden="true">Iniciar Sesion</label>
+                                        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
 					<input type="email" name="email" placeholder="Email/Nombre de usuario" >
 					<input type="password" name="pswd" placeholder="Contraseña" >
 					<button type="submit">Iniciar Sesion</button>

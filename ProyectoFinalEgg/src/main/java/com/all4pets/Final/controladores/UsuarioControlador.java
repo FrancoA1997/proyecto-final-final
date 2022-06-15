@@ -20,14 +20,6 @@ public class UsuarioControlador {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping("login")
-    public String login(@RequestParam(required = false) String error, ModelMap modelo) {
-        if (error != null) {
-            modelo.put("error", "Email o Clave incorrectos");
-        }
-        return "login.html";
-    }
-
     @GetMapping("/logout")
     public String logout() {
         return "index.html";
