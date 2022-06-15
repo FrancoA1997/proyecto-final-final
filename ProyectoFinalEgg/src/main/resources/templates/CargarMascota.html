@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Cargar Mascota</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <title>Cargar Mascota</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
-		
-		<link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
 
-		<link rel="stylesheet" href="Style-cargaMascota.css">
-	</head>
+        <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-	<body>
+        <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
 
-		<div class="wrapper">
-			<div class="inner">
-				<form action="" method="">
-					<h3>Cargar Mascota Encontrada</h3>
-					<p>Llene los datos sobre la mascota con datos claves</p>
-					<label class="form-group">
-						<input type="text" class="form-control"  required>
-						<span>Nombre</span>
-						<span class="border"></span>
-					</label>
-					<label class="form-group">
-						<input type="text" class="form-control"  required>
-						<span for="">Ubicacion donde fue encontrad</span>
-						<span class="border"></span>
-					</label>
-					<label class="form-group" >
-						<textarea name="" id="" class="form-control" required></textarea>
-						<span for="">Mas info</span>
-						<span class="border"></span>
-					</label>
+        <link rel="stylesheet" href="/cargaMascota.css">
+    </head>
+
+    <body>
+
+        <div class="wrapper">
+            <div class="inner">
+                <form action="cargar" method="POST">
+                    <h3>Cargar Mascota Encontrada</h3>
+                    <p>Llene los datos sobre la mascota con datos claves</p>
+                    <label class="form-group">
+                        <input type="text" name="nombre" class="form-control"  required>
+                        <span>Nombre</span>
+                        <span class="border"></span>
+                    </label>
+                    <label class="form-group">
+                        <input type="text" name="ubicacion" class="form-control"  required>
+                        <span >Ubicacion donde fue encontrad</span>
+                        <span class="border"></span>
+                    </label>
+                    <label class="form-group" >
+                        <input name="info"  class="form-control" >
+                        <span>Mas info</span>
+                        <span class="border"></span>
+                    </label>
                     <label class="file">
                         <div id="div_file">
                             <p id="texto">Cargar imagen</p>
                             <input type="file" id="btn_enviar"  required>
-                            
+
                         </div>
-                            
-					</label>
-					<button>Cargar 
-						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
-				</form>
-			</div>
-		</div>
-		
-	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+                    </label>
+                    <button>Cargar 
+                        <i class="zmdi zmdi-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

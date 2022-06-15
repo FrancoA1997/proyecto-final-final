@@ -151,7 +151,10 @@ public class UsuarioServicio implements UserDetailsService {
             usuarioRepo.delete(respuesta.get());
         }
     }
-    
+    public void actualizarImagen(Imagen imagen, String id){
+           Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        
+    }
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
@@ -176,4 +179,5 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
     }
+    
 }

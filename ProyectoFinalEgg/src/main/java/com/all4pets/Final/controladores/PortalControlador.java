@@ -18,4 +18,14 @@ public class PortalControlador {
     public String inicio() {
         return "iL.html";
     }
+     @GetMapping("tienda")
+    public String tienda() {
+        return "tienda.html";
+    }
+       @GetMapping("adopciones")
+    public String adopciones() {
+        return "adopciones.html";
+    }
+    
+    
 }
