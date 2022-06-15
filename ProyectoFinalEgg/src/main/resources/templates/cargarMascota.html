@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>Cargar Mascota</title>
@@ -23,6 +23,15 @@
                     <label class="form-group">
                         <input type="text" name="nombre" class="form-control"  required>
                         <span>Nombre</span>
+                        <span class="border"></span>
+                    </label>
+                    <label class="form-group" >
+                        <select  class="form-control border-primary" name="estado" >
+                            <option th:each="estados:${estados}"
+                                    th:value="${estados.estado}"
+                                    th:text="${estados.estado}"/>
+                        </select>
+                        <span>Mas info</span>
                         <span class="border"></span>
                     </label>
                     <label class="form-group">

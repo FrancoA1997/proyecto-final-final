@@ -162,7 +162,14 @@ public class UsuarioServicio implements UserDetailsService {
             usuarioRepo.delete(respuesta.get());
         }
     }
-
+    public void actualizarImagen(Imagen imagen, String id){
+           Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if(respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            usuario.setImagen(imagen);
+            usuarioRepo.save(usuario);
+        }
+    }
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
