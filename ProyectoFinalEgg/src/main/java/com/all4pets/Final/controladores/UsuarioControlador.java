@@ -24,7 +24,7 @@ public class UsuarioControlador {
     public String logout() {
         return "index.html";
     }
-
+    
     @PostMapping("registro")
     public String registro(ModelMap modelo, @RequestParam String nombre, @RequestParam String email, @RequestParam String pswd) throws ExcepcionPropia {
 
@@ -47,6 +47,13 @@ public class UsuarioControlador {
         return "perfil.html";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
+    @GetMapping("modificar")
+    public String formulario(ModelMap modelo) {
+        modelo.addAttribute("sexo", Sexo.values());
+        return "perfil.html";
+    }
+    
     @PostMapping("modificar")
     public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion) throws ExcepcionPropia {
 
