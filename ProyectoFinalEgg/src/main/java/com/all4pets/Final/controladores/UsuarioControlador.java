@@ -56,10 +56,10 @@ public class UsuarioControlador {
     }
 
     @PostMapping("modificar")
-    public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion, @RequestParam MultipartFile archivo) throws ExcepcionPropia {
+    public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion) throws ExcepcionPropia {
 
         try {
-            usuarioServicio.modificar(id, sexo, edad, telefono, direccion, archivo);
+            usuarioServicio.modificar(id, sexo, edad, telefono, direccion);
         } catch (ExcepcionPropia e) {
             modelo.put("error", e.getMessage());
             modelo.put("sexo", sexo);
@@ -72,13 +72,23 @@ public class UsuarioControlador {
         return "perfil.html";
     }
     
-    
+    @PostMapping("actualizarImagen")
+    public String actualizarImagen(ModelMap modelo, MultipartFile archivo, @RequestParam String id) throws ExcepcionPropia {
+        
+        try {
+            usuarioServicio.actualizarImagen(id, archivo);
+        } catch (ExcepcionPropia e) {
+            modelo.put("error", e.getMessage());
+        }
+        
+        modelo.put("exito", "Imagen actualizada correctamente");
+        return "perfil.html";
+    }
     
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("cargarMascota")
     public String cargarMascota() {
-        return "CargarMascota.html";
+        return "cargarMascota.html";
     }
     
-
 }
