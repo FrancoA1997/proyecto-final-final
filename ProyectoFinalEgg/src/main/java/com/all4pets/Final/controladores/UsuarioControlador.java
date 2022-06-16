@@ -3,6 +3,7 @@ package com.all4pets.Final.controladores;
 import com.all4pets.Final.enumeraciones.Estado;
 import com.all4pets.Final.enumeraciones.Sexo;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
+import com.all4pets.Final.servicios.MascotaServicio;
 import com.all4pets.Final.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,6 +21,8 @@ public class UsuarioControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private MascotaServicio mascotaServicio;
 
     @GetMapping("/logout")
     public String logout() {
@@ -89,10 +92,19 @@ public class UsuarioControlador {
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("cargarMascota")
     public String cargarMascota(ModelMap model) {
-        
-       
        model.addAttribute("estado", Estado.values());
 
+        return "CargarMascota.html";
+    }
+    
+    
+    @PostMapping("cargar")
+    public String cargar(ModelMap model,@RequestParam String observacion,@RequestParam String tipo ,MultipartFile archivo, Estado estado1 ) throws ExcepcionPropia {
+        try{
+      mascotaServicio.registrar(observacion ,tipo ,archivo ,estado1 );
+        }catch(ExceptionPropia e){
+            model.put("error", e.getMessage());
+        }
         return "CargarMascota.html";
     }
     

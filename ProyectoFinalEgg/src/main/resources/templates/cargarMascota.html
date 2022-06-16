@@ -17,33 +17,27 @@
 
                                 <div class="wrapper">
                                     <div class="inner">
-                                        <form action="cargarMascota" method="POST">
+                                        <form action="cargar" method="POST" enctype="multipart/form-data">
                                             <h3>Cargar Mascota Encontrada</h3>
                                             <p>Llene los datos sobre la mascota con datos claves</p>
                                             <label class="form-group">
-                                                <input type="text" name="nombre" class="form-control"  >
-                                                    <span>Nombre</span>
+                                                <input type="text" name="tipo" class="form-control"  >
+                                                    <span>Raza</span>
                                                     <span class="border"></span>
                                             </label>
-                                            <label class="form-group">
-                                                <input type="text" name="ubicacion" class="form-control"  >
-                                                    <span >Ubicacion donde fue encontrada la mascota</span>
-                                                    <span class="border"></span>
-                                            </label>
+                                         
                                             <label class="form-group" >
-                                                <input name="info" class="form-control">
+                                                <input placeholder="Incluya la descripcion del animal (GENERO, EDAD, ETC)" name="observacion" class="form-control">
                                                     <span >Mas info</span>
                                                     <span class="border"></span>
                                             </label>
                                             <select name="estado1" class="opcion">
                                                 <option th:each="estado : ${estado}" th:text="${estado.getDisplayValue()}"></option>
-
-
                                             </select>
                                             <label class="file">
                                                 <div id="div_file">
                                                     <p id="texto">Cargar imagen</p>
-                                                    <input type="file" id="btn_enviar"  required>
+                                                    <input type="file" name="archivo" id="btn_enviar"  required>
 
                                                 </div>
 
