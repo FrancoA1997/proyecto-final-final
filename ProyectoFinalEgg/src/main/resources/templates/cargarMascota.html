@@ -2,59 +2,58 @@
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
-        <title>Cargar Mascota</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cargar Mascota</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-        <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+                <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-        <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
+                    <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
 
-        <link rel="stylesheet" href="Style-cargaMascota.css">
-    </head>
+                        <link rel="stylesheet" href="/cargaMascota.css">
+                            </head>
 
-    <body>
+                            <body>
 
-        <div class="wrapper">
-            <div class="inner">
-                <form action="cargarMascota" method="POST">
-                    <h3>Cargar Mascota Encontrada</h3>
-                    <p>Llene los datos sobre la mascota con datos claves</p>
-                    <label class="form-group">
-                        <input type="text" name="nombre" class="form-control"  >
-                        <span>Nombre</span>
-                        <span class="border"></span>
-                    </label>
-                    <label class="form-group">
-                        <input type="text" name="ubicacion" class="form-control"  >
-                        <span >Ubicacion donde fue encontrada la mascota</span>
-                        <span class="border"></span>
-                    </label>
-                    <label class="form-group" >
-                        <input name="info" class="form-control">
-                        <span >Mas info</span>
-                        <span class="border"></span>
-                    </label>
-                    <select name="estado1" class="opcion">
-                        <option th:each="estado:${estado}"
-                                th:value="${estado.displayValue}"
-                                th:text="${estado.displayValue}"/>
-                        
-                    </select>
-                    <label class="file">
-                        <div id="div_file">
-                            <p id="texto">Cargar imagen</p>
-                            <input type="file" id="btn_enviar"  required>
+                                <div class="wrapper">
+                                    <div class="inner">
+                                        <form action="cargarMascota" method="POST">
+                                            <h3>Cargar Mascota Encontrada</h3>
+                                            <p>Llene los datos sobre la mascota con datos claves</p>
+                                            <label class="form-group">
+                                                <input type="text" name="nombre" class="form-control"  >
+                                                    <span>Nombre</span>
+                                                    <span class="border"></span>
+                                            </label>
+                                            <label class="form-group">
+                                                <input type="text" name="ubicacion" class="form-control"  >
+                                                    <span >Ubicacion donde fue encontrada la mascota</span>
+                                                    <span class="border"></span>
+                                            </label>
+                                            <label class="form-group" >
+                                                <input name="info" class="form-control">
+                                                    <span >Mas info</span>
+                                                    <span class="border"></span>
+                                            </label>
+                                            <select name="estado1" class="opcion">
+                                                <option th:each="estado : ${estado}" th:text="${estado.getDisplayValue()}"></option>
 
-                        </div>
 
-                    </label>
-                    <button>Cargar 
-                        <i class="zmdi zmdi-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
+                                            </select>
+                                            <label class="file">
+                                                <div id="div_file">
+                                                    <p id="texto">Cargar imagen</p>
+                                                    <input type="file" id="btn_enviar"  required>
 
-    </body>
-</html>
+                                                </div>
+
+                                            </label>
+                                            <button>Cargar 
+                                                <i class="zmdi zmdi-arrow-right"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </body>
+                            </html>
