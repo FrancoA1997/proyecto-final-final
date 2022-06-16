@@ -3,16 +3,25 @@ package com.all4pets.Final.enumeraciones;
 public enum Estado {
 
     PERDIDO("PERDIDO"),
-    ADOPCION("ADOPCIÓN");
+    ADOPCION("ADOPCION");
 
-   private final String displayValue;
+//    private final String displayValue;
+//
+//    private Estado(String displayValue) {
+//        this.displayValue = displayValue;
+//    }
+//
+//    public String getDisplayValue() {
+//        return displayValue;
+//    }
 
-    private Estado(String displayValue) {
-        this.displayValue = displayValue;
+    private String nombre;
+
+    private Estado(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDisplayValue() {
-        return displayValue;
+    public String getNombre() {
+        return nombre;
     }
-
 }

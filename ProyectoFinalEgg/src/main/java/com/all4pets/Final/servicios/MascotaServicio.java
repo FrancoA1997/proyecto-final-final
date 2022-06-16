@@ -2,9 +2,7 @@ package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Imagen;
 import com.all4pets.Final.entidades.Mascota;
-import com.all4pets.Final.enumeraciones.Edad;
 import com.all4pets.Final.enumeraciones.Estado;
-import com.all4pets.Final.enumeraciones.Genero;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -24,12 +22,16 @@ public class MascotaServicio {
 
     @Transactional
     public Mascota registrar(String tipo, String observacion, Estado estado, MultipartFile archivo) throws ExcepcionPropia {
+        
         validar(tipo, observacion, estado);
+        
         Mascota mascota = new Mascota();
+        
         mascota.setTipo(tipo);
         mascota.setObservacion(observacion);
         mascota.setEstado(estado);
-        mascota.setAlta(true);
+        mascota.setAlta(Boolean.TRUE);
+        
         Imagen imagen = imagenServicio.multiPartToEntity(archivo);
         mascota.setImagen(imagen);
 
@@ -37,6 +39,7 @@ public class MascotaServicio {
     }
 
     public void validar(String tipo, String observacion, Estado estado) throws ExcepcionPropia {
+        
         if (tipo == null || tipo.trim().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique el tipo de mascota");
         }

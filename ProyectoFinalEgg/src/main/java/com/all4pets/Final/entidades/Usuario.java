@@ -1,4 +1,3 @@
-
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.enumeraciones.Rol;

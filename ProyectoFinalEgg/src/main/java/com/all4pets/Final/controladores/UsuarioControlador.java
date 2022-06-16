@@ -21,6 +21,7 @@ public class UsuarioControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
+    
     @Autowired
     private MascotaServicio mascotaServicio;
 
@@ -72,12 +73,12 @@ public class UsuarioControlador {
             modelo.put("direccion", direccion);
         }
 
-        modelo.put("exito", "Modificacion realizada con éxito");
+        modelo.put("exito", "Perfil actualizado con éxito");
         return "perfil.html";
     }
     
     @PostMapping("actualizarImagen")
-    public String actualizarImagen(ModelMap modelo, MultipartFile archivo, @RequestParam String id) throws ExcepcionPropia {
+    public String actualizarImagen(ModelMap modelo, @RequestParam String id, MultipartFile archivo) throws ExcepcionPropia {
         
         try {
             usuarioServicio.actualizarImagen(id, archivo);
@@ -91,22 +92,22 @@ public class UsuarioControlador {
     
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("cargarMascota")
-    public String cargarMascota(ModelMap model) {
-       model.addAttribute("estado", Estado.values());
-
-        return "CargarMascota.html";
+    public String cargar(ModelMap modelo) {
+       modelo.addAttribute("estados", Estado.values());
+        return "cargarMascota.html";
     }
     
-    
-    @PostMapping("cargar")
-    public String cargar(ModelMap model,@RequestParam String observacion,@RequestParam String tipo ,MultipartFile archivo, Estado estado1 ) throws ExcepcionPropia {
-        try{
-      mascotaServicio.registrar(observacion ,tipo ,archivo ,estado1 );
-        }catch(ExceptionPropia e){
-            model.put("error", e.getMessage());
+    @PostMapping("cargarMascota")
+    public String cargarMascota(ModelMap modelo, @RequestParam String tipo, @RequestParam String observacion, @RequestParam Estado estado, MultipartFile archivo) throws ExcepcionPropia {
+        
+        try {
+            mascotaServicio.registrar(tipo, observacion, estado, archivo);
+        } catch (ExcepcionPropia e) {
+            modelo.put("error", e.getMessage());
         }
-        return "CargarMascota.html";
+        
+        modelo.put("exito", "Mascota cargada con exito");
+        return "cargarMascota.html";
     }
     
-
 }

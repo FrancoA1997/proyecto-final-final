@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
             <title>Cargar Mascota</title>
@@ -17,31 +17,29 @@
 
                                 <div class="wrapper">
                                     <div class="inner">
-                                        <form action="cargar" method="POST" enctype="multipart/form-data">
+                                        <form action="cargarMascota" method="POST" enctype="multipart/form-data">
                                             <h3>Cargar Mascota Encontrada</h3>
+                                            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                                            <p th:if="${exito != null}" th:text="${exito}" style="color:green;"></p>
                                             <p>Llene los datos sobre la mascota con datos claves</p>
                                             <label class="form-group">
                                                 <input type="text" name="tipo" class="form-control"  >
                                                     <span>Raza</span>
                                                     <span class="border"></span>
                                             </label>
-                                         
+
                                             <label class="form-group" >
                                                 <input placeholder="Incluya la descripcion del animal (GENERO, EDAD, ETC)" name="observacion" class="form-control">
                                                     <span >Mas info</span>
                                                     <span class="border"></span>
                                             </label>
-                                            <select name="estado1" class="opcion">
-                                                <option th:each="estado : ${estado}" th:text="${estado.getDisplayValue()}"></option>
+                                            <select name="estado" class="form-control">
+                                                <option th:each="estado1 : ${estados}" th:text="${estado1.getNombre()}"></option>
                                             </select>
-                                            <label class="file">
-                                                <div id="div_file">
-                                                    <p id="texto">Cargar imagen</p>
-                                                    <input type="file" name="archivo" id="btn_enviar"  required>
 
-                                                </div>
+                                            <label>Suba una imagen</label>
+                                            <input type="file" class="form-control" name="archivo"/> 
 
-                                            </label>
                                             <button>Cargar 
                                                 <i class="zmdi zmdi-arrow-right"></i>
                                             </button>
