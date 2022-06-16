@@ -88,11 +88,11 @@ public class UsuarioControlador {
     
     @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
     @GetMapping("cargarMascota")
-    public String cargarMascota(ModelMap model, Estado displayValue) {
+    public String cargarMascota(ModelMap model) {
         
        
-       model.addAttribute("estado", displayValue);
-        
+       model.addAttribute("estado", Estado.values());
+
         return "CargarMascota.html";
     }
     

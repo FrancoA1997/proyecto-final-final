@@ -5,14 +5,14 @@ public enum Estado {
     PERDIDO("PERDIDO"),
     ADOPCION("ADOPCIÓN");
 
-    private String estado;
+   private final String displayValue;
 
-    private Estado(String estado) {
-        this.estado = estado;
+    private Estado(String displayValue) {
+        this.displayValue = displayValue;
     }
 
-    public String getEstado() {
-        return this.estado;
+    public String getDisplayValue() {
+        return displayValue;
     }
 
 }
