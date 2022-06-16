@@ -20,7 +20,7 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 		
 			<div class="signup">
-				<form action="registro" method="POST">
+				<form action="usuario/registro" method="POST">
 					<label for="chk" aria-hidden="true">Registrarse</label>
                                         <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
 					<input type="text"  placeholder="Nombre y apellido"  name="nombre" th:value="${nombre}">

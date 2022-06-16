@@ -23,22 +23,20 @@ public class MascotaServicio {
     private ImagenServicio imagenServicio;
 
     @Transactional
-    public Mascota registrar(String tipo, String observacion, Estado estado, Edad edad, Genero genero, Boolean estaActivo, MultipartFile archivo) throws ExcepcionPropia {
-        validar(tipo, observacion, estado, edad, genero);
+    public Mascota registrar(String tipo, String observacion, Estado estado, MultipartFile archivo) throws ExcepcionPropia {
+        validar(tipo, observacion, estado);
         Mascota mascota = new Mascota();
         mascota.setTipo(tipo);
         mascota.setObservacion(observacion);
         mascota.setEstado(estado);
-        mascota.setEdad(edad);
-        mascota.setGenero(genero);
-        mascota.setAlta(estaActivo);
+        mascota.setAlta(true);
         Imagen imagen = imagenServicio.multiPartToEntity(archivo);
         mascota.setImagen(imagen);
 
         return mascotaRepo.save(mascota);
     }
 
-    public void validar(String tipo, String observacion, Estado estado, Edad edad, Genero genero) throws ExcepcionPropia {
+    public void validar(String tipo, String observacion, Estado estado) throws ExcepcionPropia {
         if (tipo == null || tipo.trim().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique el tipo de mascota");
         }
@@ -49,12 +47,7 @@ public class MascotaServicio {
         if (estado == null || estado.toString().trim().isEmpty()) {
             throw new ExcepcionPropia("Este campo no puede estar vacío. Por favor, elija una opción");
         }
-        if (edad == null || edad.toString().trim().isEmpty()) {
-            throw new ExcepcionPropia("Este campo no puede estar vacío. Por favor, elija una opción");
-        }
-        if (genero == null || genero.toString().trim().isEmpty()) {
-            throw new ExcepcionPropia("Este campo no puede estar vacío. Por favor, elija una opción");
-        }
+       
     }
 
     public void deshabilitar(String id) throws ExcepcionPropia {
