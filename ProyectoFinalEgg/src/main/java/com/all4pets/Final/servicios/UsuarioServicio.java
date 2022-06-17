@@ -168,17 +168,7 @@ public class UsuarioServicio implements UserDetailsService {
         }
         
     }
-     @Transactional(propagation = Propagation.NESTED)
-    public void adoptarMascota(String id, Mascota mascota) throws ExcepcionPropia{
-         Optional<Usuario> respuesta = usuarioRepo.findById(id);
-         if (respuesta.isPresent()) {
-            Usuario usuario = respuesta.get();
-            usuario.setMascota(mascota);
-            usuarioRepo.save(usuario);
-            
-         }
-         
-    }
+
    
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
