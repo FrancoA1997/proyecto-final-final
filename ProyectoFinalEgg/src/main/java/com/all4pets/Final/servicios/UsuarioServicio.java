@@ -1,7 +1,9 @@
 package com.all4pets.Final.servicios;
 
 import com.all4pets.Final.entidades.Imagen;
+import com.all4pets.Final.entidades.Mascota;
 import com.all4pets.Final.entidades.Usuario;
+import com.all4pets.Final.enumeraciones.Estado;
 import com.all4pets.Final.enumeraciones.Rol;
 import com.all4pets.Final.enumeraciones.Sexo;
 import com.all4pets.Final.excepciones.ExcepcionPropia;
@@ -33,6 +35,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private ImagenServicio imagenServicio;
+    
 
     @Transactional(propagation = Propagation.NESTED)
     public Usuario registrar(String nombre, String email, String clave) throws ExcepcionPropia {
@@ -163,6 +166,18 @@ public class UsuarioServicio implements UserDetailsService {
         if (respuesta.isPresent()) {
             usuarioRepo.delete(respuesta.get());
         }
+        
+    }
+     @Transactional(propagation = Propagation.NESTED)
+    public void adoptarMascota(String id, Mascota mascota) throws ExcepcionPropia{
+         Optional<Usuario> respuesta = usuarioRepo.findById(id);
+         if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            usuario.setMascota(mascota);
+            usuarioRepo.save(usuario);
+            
+         }
+         
     }
    
     @Override

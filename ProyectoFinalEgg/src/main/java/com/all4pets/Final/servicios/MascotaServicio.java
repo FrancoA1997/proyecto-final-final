@@ -13,6 +13,8 @@ import com.all4pets.Final.repositorios.MascotaRepositorio;
 
 @Service
 public class MascotaServicio {
+    @Autowired
+    private UsuarioServicio usuarioServicio;
 
     @Autowired
     private MascotaRepositorio mascotaRepo;
@@ -21,7 +23,7 @@ public class MascotaServicio {
     private ImagenServicio imagenServicio;
 
     @Transactional
-    public Mascota registrar(String tipo, String observacion, Estado estado, MultipartFile archivo) throws ExcepcionPropia {
+    public Mascota registrar(String id, String tipo, String observacion, Estado estado, MultipartFile archivo) throws ExcepcionPropia {
         
         validar(tipo, observacion, estado);
         
@@ -30,12 +32,14 @@ public class MascotaServicio {
         mascota.setTipo(tipo);
         mascota.setObservacion(observacion);
         mascota.setEstado(estado);
-        mascota.setAlta(Boolean.TRUE);
+        mascota.setAlta(true);
         
         Imagen imagen = imagenServicio.multiPartToEntity(archivo);
         mascota.setImagen(imagen);
-
-        return mascotaRepo.save(mascota);
+        mascotaRepo.save(mascota);
+        
+       return mascota;
+        
     }
 
     public void validar(String tipo, String observacion, Estado estado) throws ExcepcionPropia {
