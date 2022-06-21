@@ -22,8 +22,9 @@
     <div class="container">
         <div class="card">
           <div  class="box">
+               <div class="content">
              <img th:src="@{'data:image/jpeg;charset=utf-8;base64,' + mascota.imagen.contenido}" alt="">
-            <div class="content">
+           
           
               <h3 th:text="${mascota.tipo}"> </h3>
               <p th:text="${mascota.observacion}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
