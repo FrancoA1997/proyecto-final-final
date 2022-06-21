@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styleUsuario.css">
+    <link rel="stylesheet" href="/perfil.css">
     <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
     <title>Perfil All4Pets</title>
 </head>
@@ -28,19 +28,18 @@
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <h3 class="titulo">Lorem</h3>
-                <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3 class="titulo"><p th:text="${session.usuariosession.nombre}"></p></h3>
+               
             </div>
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
-                    <li><i class="icono fas fa-map-signs"></i> Usuario:</li>
-                    <li><i class="icono fas fa-briefcase"></i> Email:</li>
+                    
+                    <li><i class="icono fas fa-briefcase"></i> <strong>Email:</strong> <label th:text="${session.usuariosession.email}"></label></li>
                    
                 </ul>
                 <ul class="lista-datos">
-                    <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion:</li>
-                    <li><i class="icono fas fa-user-check"></i> Registro:</li>
+                    <li><i class="icono fas fa-map-marker-alt"></i> <strong>Ubicacion:</strong> <p th:text="${session.usuariosession.direccion}"></p></li>
+                
                     
                 </ul>
             </div>
