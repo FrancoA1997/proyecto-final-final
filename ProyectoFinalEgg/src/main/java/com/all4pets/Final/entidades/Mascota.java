@@ -1,6 +1,7 @@
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.enumeraciones.Estado;
+
 import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,8 +16,11 @@ public class Mascota {
     private String id;
     
     @OneToOne
+    @Lob
     private Imagen imagen;
+  
     
+    private String idUsuario;
     private String tipo; //Clase de animal, ya sea perro, gato, pato, lo que sea
     private String observacion;
     

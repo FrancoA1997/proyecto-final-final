@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import com.all4pets.Final.repositorios.MascotaRepositorio;
+import java.util.List;
 
 @Service
 public class MascotaServicio {
@@ -33,6 +34,7 @@ public class MascotaServicio {
         mascota.setObservacion(observacion);
         mascota.setEstado(estado);
         mascota.setAlta(true);
+        mascota.setIdUsuario(id);
         
         Imagen imagen = imagenServicio.multiPartToEntity(archivo);
         mascota.setImagen(imagen);
@@ -80,4 +82,9 @@ public class MascotaServicio {
             throw new ExcepcionPropia("No se encontro la mascota solicitada");
         }
     }
+      public List<Mascota> listaMascota(){
+       
+        return (List<Mascota>) mascotaRepo.findAll();
+    }
+
 }
