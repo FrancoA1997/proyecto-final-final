@@ -1,8 +1,6 @@
 package com.all4pets.Final.entidades;
 
-import com.all4pets.Final.enumeraciones.Edad;
 import com.all4pets.Final.enumeraciones.Estado;
-import com.all4pets.Final.enumeraciones.Genero;
 import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,12 +22,6 @@ public class Mascota {
     
     @Enumerated (EnumType.STRING)
     private Estado estado; //Cómo se encuentra esa mascota 
-    
-    @Enumerated (EnumType.STRING)
-    private Edad edad; //Edad de la mascota, ya sea, cachorro, adulto
-    
-    @Enumerated (EnumType.STRING)
-    private Genero genero; //Género de la mascota, o sea macho o hembra
     
     private Boolean alta;
     

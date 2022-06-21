@@ -1,4 +1,3 @@
-
 package com.all4pets.Final.entidades;
 
 import com.all4pets.Final.enumeraciones.Rol;
@@ -28,8 +27,8 @@ public class Usuario {
     
     private Integer edad;
     
-    @OneToMany
-    private List<Mascota> mascota;
+    @OneToOne
+    private Mascota mascota;
     
     @Column(unique = true)
     private String email;

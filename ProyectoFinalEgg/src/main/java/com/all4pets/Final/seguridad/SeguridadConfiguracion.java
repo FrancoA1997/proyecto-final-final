@@ -33,7 +33,7 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
                         "/**").permitAll()
                 .and().
                 formLogin()
-                .loginPage("/usuario/login")
+                .loginPage("/login")
                 .failureUrl("/login?error")
                 .loginProcessingUrl("/logincheck")
                 .usernameParameter("email")
