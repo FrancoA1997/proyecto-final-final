@@ -119,7 +119,7 @@ public class UsuarioControlador {
                 
             }
             
-            mascotaServicio.registrar(id, tipo, observacion, estado, archivo);
+          
             
         } catch (ExcepcionPropia e) {
             modelo.put("error", e.getMessage());
