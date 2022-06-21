@@ -195,6 +195,21 @@ body {
     background: linear-gradient(45deg, #FF2DFD, #40A7FF);
 }
 
+.telefono{
+   position: relative;
+    background-color: #6C63FF;
+    border: none;
+    color: white;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 30px;
+   cursor: pointer;
+}
+
+
+
 /* adactacion a dispositivos */
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
