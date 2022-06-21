@@ -1,10 +1,14 @@
 package com.all4pets.Final.controladores;
 
+import com.all4pets.Final.entidades.Mascota;
 import com.all4pets.Final.entidades.Producto;
+import com.all4pets.Final.servicios.MascotaServicio;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
+    
+    @Autowired
+    MascotaServicio mascotaServicio;
 
     @GetMapping("/index")
     public String index() {
@@ -48,8 +55,11 @@ request) {
     }
 
     @GetMapping("adopciones")
-    public String adopciones() {
-        return "adopciones.html";
+    public String adopciones(Model model) {
+        List<Mascota> listMascota = mascotaServicio.listaMascota();
+        model.addAttribute("mascota", listMascota);
+        
+        return "adopcionesFix.html";
     }
 
 }

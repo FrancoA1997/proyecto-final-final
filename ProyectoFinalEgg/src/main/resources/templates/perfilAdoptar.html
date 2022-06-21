@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet"  href="/perfil.css"/>
+                        <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+                            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+                             
+                                <title>Perfil All4Pets</title>
+                                </head>
+                                <body>
+
+                                    <section class="seccion-perfil-usuario">
+                                        <div class="perfil-usuario-header">
+                                            <div class="perfil-usuario-portada">
+                                                <div class="perfil-usuario-avatar">
+                                                   <!--   <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">-->
+                                                   <form action="cargarImagen" method="POST" enctype="multipart/form-data">
+                                                        <input type="file" name="imagen" class="boton-avatar">
+                                                             
+                                                            <i class="far fa-image"></i>\
+                                                            
+                                                   </form>>
+                                                </div>
+                                                <button type="button" class="boton-edicion">
+                                                    Editar datos
+                                                </button> 
+                                            </div>
+                                        </div>
+                                        <div class="perfil-usuario-body">
+                                            <div class="perfil-usuario-bio">
+                                                <h3 class="titulo" th:if="${usuario.id != null}" th:text="${usuario.nombre}" ></h3>
+                                                
+                                            </div>
+                                            <h4 >DATOS DE USUARIO</h4>
+                                            <div class="perfil-usuario-footer">
+                                                
+                                                <ul class="lista-datos">
+                                                    <li><i class="icono fas fa-map-signs"></i> Usuario: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.nombre}"/></li>
+                                                    <li><i class="icono fas fa-phone-alt"></i> Telefono: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.telefono}"/></li>
+                                                    <li><i class="icono fas fa-briefcase"></i> Email: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.email}"/></li>
+
+                                                </ul>
+                                                <ul class="lista-datos">
+                                                    <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.direccion}"/></li>
+                                                    <li><i class="icono fas fa-calendar-alt"></i> Edad: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.edad}"/></li>
+                                                    <li><i class="icono fas fa-user-check"></i> Registro: <label style="color: green" class="texto" th:if="${usuario.id != null}" th:text="${usuario.alta}"/></li>
+
+                                                </ul>
+                                            </div>
+                                            <!--
+                                
+                                                <div class="redes-sociales">
+                                                    <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                                                    <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                                                    <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+                                                </div>
+                                            -->
+
+                                        </div>
+                                    </section>
+
+
+
+
+
+
+
+                                </body>
+                                </html>

@@ -99,7 +99,7 @@ body .container .card .box {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: url(imgs/pets/alvan-nee-brFsZ7qszSY-unsplash.jpg);
+
     background-position: center;
     background-size: cover;
   border-radius: 15px;
@@ -241,7 +241,6 @@ body .container .card1 .box1 {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: url(imgs/pets/andrea-lightfoot-ZePrO18ieX4-unsplash.jpg);
     background-position: center;
     background-size: cover;
   border-radius: 15px;

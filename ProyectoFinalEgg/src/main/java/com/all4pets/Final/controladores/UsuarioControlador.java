@@ -128,5 +128,14 @@ public class UsuarioControlador {
         modelo.put("exito", "Mascota cargada con exito");
         return "cargarMascota.html";
     }
+     @GetMapping("perfilAdopciones")
+    public String perfilAdoptar(@RequestParam String id, ModelMap model) {
+           Optional<Usuario> respuesta = usuarioRepo.findById(id);
+         if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            model.addAttribute("usuario", usuario);
+         }
+        return "perfilAdoptar.html";
+    }
     
 }
