@@ -7,7 +7,7 @@ cambiar imagines de productos,
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,10 +33,12 @@ cambiar imagines de productos,
     <nav class="center__row">
       <h1 class="logo">All 4 Pets</h1>
       <ul class="center__row">
-        <li class="nav-item"><a href="index.html">Home</a></li>
-        <li class="nav-item"><a href="#help">Servicios</a></li>
-        <li class="nav-item"><a href="#quienessomos">Quienes Somos</a></li>
-        <li class="nav-item"><a href="#contacto">Contacto</a></li>
+          <div th:if="${session.usuariosession != null}">
+              <div class="nav-item"><a href="/inicio">Home</a></div>
+        </div>
+        <div th:unless="${session.usuariosession == null}">
+            <div class="nav-item"><a href="/index">Home</a></div>   
+        </div>
         <li class="nav-item">
           <a href="-">Carrito</a>
         </li>

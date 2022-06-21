@@ -18,6 +18,7 @@ h1{
     font-size: 40px;
     letter-spacing: 2px;
     color: #6C63FF;
+    position: initial;
 }
 
 .logo{

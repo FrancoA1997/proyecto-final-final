@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,19 +12,18 @@
 <!-- nav -->
 
 <h1 class="logo" > <a href="/">All 4 Pets</a></h1>
-<h1 class="cargar"><a href="usuario/cargarMascota">Carga una mascota</a></h1>
+<h1 class="cargar" ><a href="usuario/cargarMascota">Carga una mascota</a></h1>
 
     <!--cartas-->
- <table class="table" id="mascotasListadas">
+ 
       <tbody>
           <tr  th:each="mascota:${mascota}">
                <td>
     <div class="container">
         <div class="card">
           <div  class="box">
-               <div class="content">
-             <img th:src="@{'data:image/jpeg;charset=utf-8;base64,' + mascota.imagen.contenido}" alt="">
-           
+             <img th:src="@{'data:image/jpg;charset=utf-8;base64,' + mascota.imagen.contenido}" alt="">
+            <div class="content">
           
               <h3 th:text="${mascota.tipo}"> </h3>
               <p th:text="${mascota.observacion}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
