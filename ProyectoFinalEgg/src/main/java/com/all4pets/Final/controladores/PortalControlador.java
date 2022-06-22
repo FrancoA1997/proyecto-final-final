@@ -25,7 +25,7 @@ public class PortalControlador {
 
     @Autowired
     MascotaServicio mascotaServicio;
-     @Autowired
+    @Autowired
     ProductoServicio productoServicio;
     @Autowired
     ProductoRepositorio productoRepo;
@@ -54,17 +54,28 @@ public class PortalControlador {
 
         return "tienda.html";
     }
+
     @GetMapping("carrito")
     public String carrito(HttpSession session, ModelMap model) {
-     List<Producto> productos = (List<Producto>) session.getAttribute("productos");
-       session.setAttribute("productos", productos);
+        List<Producto> productosCarrito = (List<Producto>) session.getAttribute("carrito");
+        model.addAttribute("productosCarrito", productosCarrito);
         return "carrito.html";
     }
 
-    @PostMapping("cart{productoId}")
-    public String tienda(@PathVariable String productoId, ModelMap model, HttpSession session) {
-    
+    @PostMapping("cart")
+    public String tienda(@RequestParam String productoId, ModelMap model, HttpSession session) {
+        Producto producto = productoRepo.findProductById(productoId);
 
+        if ((List<Producto>) session.getAttribute("carrito") == null) {
+            List<Producto> productos = new ArrayList();
+            productos.add(producto);
+            session.setAttribute("carrito", productos);
+        } else {
+            List<Producto> productos = (List<Producto>) session.getAttribute("carrito");
+            productos.add(producto);
+            session.setAttribute("carrito", productos);
+        }
+        
         return "tienda.html";
     }
 

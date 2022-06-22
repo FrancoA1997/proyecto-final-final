@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Datos</title>
     <link rel="stylesheet" href="/editarDatosPerfil.css">
     <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
-</head>
-<body>
-   
-        <table class="table" id="autoresListados">
-                                               
-                                                <tbody>
-                                                   
-                                                    <tr  class="border" th:each="productos:${productos}">
-                                                       <strong> <td  th:text="${productos.nombre}"></td></strong>
-                                                        <td th:text="${productos.precio}"></td>
-                                                         <td th:text="${productos.descripcion}"></td>
-                                                       
-                                                    </tr>
-                                                        
-                                                </tbody>
-                                            </table>
-        
-      
-</body>
+    </head>
+    
+    <body>
+        <table class="table">
+            <tbody>
+                <tr class="border" th:each="producto : ${productosCarrito}">
+                    <strong> <td  th:text="${producto.nombre}"></td></strong>
+                    <td th:text="${producto.precio}"></td>
+                    <td th:text="${producto.descripcion}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
 </html>
