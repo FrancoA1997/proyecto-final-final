@@ -20,15 +20,20 @@
           <tr  th:each="mascota:${mascota}">
                <td>
     <div class="container">
+         
         <div class="card">
+            
           <div  class="box">
-             <img th:src="@{'data:image/jpg;charset=utf-8;base64,' + mascota.imagen.contenido}" alt="">
+           
+
             <div class="content">
-          
-              <h3 th:text="${mascota.tipo}"> </h3>
-              <p th:text="${mascota.observacion}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-              <a th:href="@{usuario/perfilAdopciones(id=${mascota.idUsuario})}">Adoptar</a>
+           <img  widght='50' height="250" th:src="${'/imagen/mascota?id=' + mascota.id}" >
+              <h3   th:text="${mascota.tipo}"> </h3>
+              <p   th:text="${mascota.observacion}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+              <a  th:href="@{usuario/perfilAdopciones(id=${mascota.idUsuario})}">Adoptar</a>
             </div>
+             
+            
           </div>
         </div>   
       </div>  

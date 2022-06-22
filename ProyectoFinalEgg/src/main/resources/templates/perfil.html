@@ -16,7 +16,7 @@
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
                 <div class="perfil-usuario-avatar">
-                    <img th:text="${session.usuariosession.imagen.contenido}" alt="img-avatar">
+                    <img th:src="${'/imagen/usuario?id=' + session.usuariosession.id}" alt="img-avatar">
                 
                     </button>
                 </div>
@@ -34,7 +34,7 @@
                 <ul class="lista-datos">
                     
                     <li><i class="icono fas fa-briefcase"></i> <strong>Email:</strong> <label th:text="${session.usuariosession.email}"></label></li>
-                   
+                                       <li><i class="icono fas fa-phone-alt"></i> <strong>Telefono: </strong> <label th:text="${session.usuariosession.telefono}"></label></li>
                 </ul>
                 <ul class="lista-datos">
                     <li><i class="icono fas fa-map-marker-alt"></i> <strong>Ubicacion:</strong> <p th:text="${session.usuariosession.direccion}"></p></li>
@@ -43,9 +43,7 @@
                 </ul>
             </div>
 
-            <div class="telefono">
-                <button class="telefono">Contacte al Usuario</button>
-            </div>
+            
           
             
         </div>

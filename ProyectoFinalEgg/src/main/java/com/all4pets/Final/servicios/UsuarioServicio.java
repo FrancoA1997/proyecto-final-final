@@ -185,5 +185,16 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
     }
+  public Usuario buscarPorId(String id) throws ExcepcionPropia {
 
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+         
+        return usuario;
+        } else {
+            
+        }
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+        }
 }

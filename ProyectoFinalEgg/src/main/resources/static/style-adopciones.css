@@ -95,7 +95,9 @@ body .container .card:nth-child(3) .box .content a {
 }
 
 body .container .card .box {
-  position: absolute;
+ 
+  
+  
   top: 20px;
   left: 20px;
   right: 20px;
@@ -789,7 +791,7 @@ body .container .card6 .box6 {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: url(imgs/pets/taylor-beach-_k9ywkPgi4Y-unsplash.jpg);
+  
     background-position: center;
     background-size: cover;
   border-radius: 15px;

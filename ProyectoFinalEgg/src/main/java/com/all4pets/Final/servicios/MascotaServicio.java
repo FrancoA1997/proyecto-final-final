@@ -86,5 +86,16 @@ public class MascotaServicio {
        
         return (List<Mascota>) mascotaRepo.findAll();
     }
+public Mascota buscarPorId(String id) throws ExcepcionPropia {
 
+        Optional<Mascota> respuesta = mascotaRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Mascota mascota = respuesta.get();
+         
+        return mascota;
+        } else {
+            
+        }
+            throw new ExcepcionPropia("No se encontro el usuario solicitado");
+        }
 }
