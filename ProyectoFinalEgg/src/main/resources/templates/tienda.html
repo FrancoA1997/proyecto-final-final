@@ -31,14 +31,11 @@ cambiar imagines de productos,
     <body>
 
         <nav class="center__row">
-            <h1 class="logo">All 4 Pets</h1>
+            <h1 class="logo" ><a href="/">All 4 Pets</a></h1>
             <ul class="center__row">
-                <div th:if="${session.usuariosession != null}">
+              
                     <div class="nav-item"><a href="/inicio">Home</a></div>
-                </div>
-                <div th:unless="${session.usuariosession == null}">
-                    <div class="nav-item"><a href="/index">Home</a></div>   
-                </div>
+               
                 <li class="nav-item">
                     <a href="/carrito">Carrito</a>
                 </li>

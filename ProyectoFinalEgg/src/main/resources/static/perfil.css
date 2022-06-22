@@ -5,7 +5,12 @@ html {
     line-height: 1.4;
 }
 
-
+.logo {
+  padding: 0px 55px;
+  background: url(imgs/filled_pets_icon-icons.com_59360.png) no-repeat;
+  font-family: "Cafe Matcha";
+  color: #6c63ff;
+}
 * {
     margin: 0;
     padding: 0;

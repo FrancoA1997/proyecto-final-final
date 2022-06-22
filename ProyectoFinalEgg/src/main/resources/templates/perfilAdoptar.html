@@ -13,6 +13,8 @@
                                 </head>
                                 <body>
 
+           
+            
                                     <section class="seccion-perfil-usuario">
                                         <div class="perfil-usuario-header">
                                             <div class="perfil-usuario-portada">
@@ -23,9 +25,7 @@
                                                             
                                                   
                                                 </div>
-                                                <button type="button" class="boton-edicion">
-                                                    Editar datos
-                                                </button> 
+                                                
                                             </div>
                                         </div>
                                         <div class="perfil-usuario-body">
@@ -50,8 +50,15 @@
                                             </div>
                                             <br>
                                                   <div class="telefono">
-                <button class="telefono">Contacte al Usuario</button>
+                <button href="/adopciones" class="telefono">Contacte al Usuario</button>
+             
             </div>
+                                                <br>
+                                              
+                                                  <button type="button" class="telefono">
+                    <a th:href="@{/adopciones}">Editar datos</a>  
+                </button>
+                                                  
                                             <!--
                                 
                                                 <div class="redes-sociales">
