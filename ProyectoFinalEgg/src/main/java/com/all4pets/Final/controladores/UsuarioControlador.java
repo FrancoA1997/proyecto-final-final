@@ -9,6 +9,7 @@ import com.all4pets.Final.repositorios.UsuarioRepositorio;
 import com.all4pets.Final.servicios.MascotaServicio;
 import com.all4pets.Final.servicios.UsuarioServicio;
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -69,22 +70,22 @@ public class UsuarioControlador {
         return "perfil.html";
     }
     
-    @PostMapping("modificar")
-    public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion) throws ExcepcionPropia {
-        
-        try {
-            usuarioServicio.modificar(id, sexo, edad, telefono, direccion);
-        } catch (ExcepcionPropia e) {
-            modelo.put("error", e.getMessage());
-            modelo.put("sexo", sexo);
-            modelo.put("edad", edad);
-            modelo.put("telefono", telefono);
-            modelo.put("direccion", direccion);
-        }
-        
-        modelo.put("exito", "Perfil actualizado con éxito");
-        return "perfil.html";
-    }
+//    @PostMapping("modificar")
+//    public String modificar(ModelMap modelo, @RequestParam String id, @RequestParam Sexo sexo, @RequestParam Integer edad, @RequestParam String telefono, @RequestParam String direccion) throws ExcepcionPropia {
+//        
+//        try {
+//            usuarioServicio.modificar(id, sexo, edad, telefono, direccion);
+//        } catch (ExcepcionPropia e) {
+//            modelo.put("error", e.getMessage());
+//            modelo.put("sexo", sexo);
+//            modelo.put("edad", edad);
+//            modelo.put("telefono", telefono);
+//            modelo.put("direccion", direccion);
+//        }
+//        
+//        modelo.put("exito", "Perfil actualizado con éxito");
+//        return "perfil.html";
+//    }
     
     @PostMapping("actualizarImagen")
     public String actualizarImagen(ModelMap modelo, @RequestParam String id, MultipartFile archivo) throws ExcepcionPropia {
@@ -137,5 +138,31 @@ public class UsuarioControlador {
          }
         return "perfilAdoptar.html";
     }
+
+    @PostMapping("editar")
+    public String editarDatos(@RequestParam String id,MultipartFile archivo, HttpSession session ,String nombre, ModelMap model, String telefono, String direccion) throws ExcepcionPropia {
+           Optional<Usuario> respuesta = usuarioRepo.findById(id);
+         if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            model.addAttribute("usuario", usuario);
+            usuarioServicio.modificar(id ,archivo, nombre, telefono, direccion);
+            session.setAttribute("usuariosession", usuario);
+         }
+        return "perfil.html";
+  
+    }
+    
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO')")
+    @GetMapping("editarPerfil")
+    public String editarDatosPerfil(@RequestParam String id, ModelMap model) throws ExcepcionPropia {
+           Optional<Usuario> respuesta = usuarioRepo.findById(id);
+         if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            model.addAttribute("usuario", usuario);
+        } 
+        return "editarDatosPerfil.html";
+  
+
+            }  
     
 }

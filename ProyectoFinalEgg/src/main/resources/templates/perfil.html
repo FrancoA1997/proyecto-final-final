@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,13 +16,12 @@
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
                 <div class="perfil-usuario-avatar">
-                    <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
-                    <input type="file" class="boton-avatar">
-                        <i class="far fa-image"></i>
+                    <img th:text="${session.usuariosession.imagen.contenido}" alt="img-avatar">
+                
                     </button>
                 </div>
                 <button type="button" class="boton-edicion">
-                    <a href="editarDatosPerfil">Editar datos</a>  
+                    <a th:href="@{/usuario/editarPerfil(id=${session.usuariosession.id})}">Editar datos</a>  
                 </button>
             </div>
         </div>

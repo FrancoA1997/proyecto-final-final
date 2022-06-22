@@ -35,7 +35,6 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private ImagenServicio imagenServicio;
-    
 
     @Transactional(propagation = Propagation.NESTED)
     public Usuario registrar(String nombre, String email, String clave) throws ExcepcionPropia {
@@ -56,19 +55,18 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void modificar(String id, Sexo sexo, Integer edad, String telefono, String direccion) throws ExcepcionPropia {
+    public void modificar(String id,MultipartFile archivo, String nombre, String telefono, String direccion) throws ExcepcionPropia {
 
-        validarModificacion(sexo, edad, telefono, direccion);
+        validarModificacion(nombre, telefono, direccion);
 
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
 
-            usuario.setSexo(sexo);
-            usuario.setEdad(edad);
+            usuario.setNombre(nombre);
             usuario.setTelefono(telefono);
             usuario.setDireccion(direccion);
-
+            usuario.setImagen(imagenServicio.multiPartToEntity(archivo));
             usuarioRepo.save(usuario);
         } else {
             throw new ExcepcionPropia("No se encontro el usuario solicitado");
@@ -83,13 +81,12 @@ public class UsuarioServicio implements UserDetailsService {
 
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
-            
+
             Imagen imagen = imagenServicio.multiPartToEntity(archivo);
             usuario.setImagen(imagen);
-            
+
             usuarioRepo.save(usuario);
         }
-
     }
 
     public void deshabilitar(String id) throws ExcepcionPropia {
@@ -134,16 +131,11 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
 
-    public void validarModificacion(Sexo sexo, Integer edad, String telefono, String direccion) throws ExcepcionPropia {
+    public void validarModificacion(String telefono, String nombre, String direccion) throws ExcepcionPropia {
 
-        if (sexo == null || sexo.toString().isEmpty()) {
-            throw new ExcepcionPropia("Por favor, indique su sexo");
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new ExcepcionPropia("Por favor, indique su nombre");
         }
-
-        if (edad == null) {
-            throw new ExcepcionPropia("Por favor, indique su edad");
-        }
-
         if (telefono == null || telefono.trim().isEmpty()) {
             throw new ExcepcionPropia("Por favor, indique su telefono");
         }
@@ -166,10 +158,9 @@ public class UsuarioServicio implements UserDetailsService {
         if (respuesta.isPresent()) {
             usuarioRepo.delete(respuesta.get());
         }
-        
+
     }
 
-   
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 

@@ -2,7 +2,10 @@ package com.all4pets.Final.controladores;
 
 import com.all4pets.Final.entidades.Mascota;
 import com.all4pets.Final.entidades.Producto;
+import com.all4pets.Final.repositorios.ProductoRepositorio;
 import com.all4pets.Final.servicios.MascotaServicio;
+import com.all4pets.Final.servicios.ProductoServicio;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +15,20 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
-    
+
     @Autowired
     MascotaServicio mascotaServicio;
+     @Autowired
+    ProductoServicio productoServicio;
+    @Autowired
+    ProductoRepositorio productoRepo;
 
     @GetMapping("/index")
     public String index() {
@@ -40,17 +48,23 @@ public class PortalControlador {
     public String inicio() {
         return "iL.html";
     }
-@GetMapping("tienda")
+
+    @GetMapping("tienda")
     public String tienda() {
-    
+
         return "tienda.html";
     }
-    @GetMapping("tienda/{id}")
-    public String tienda(@PathVariable String id, ModelMap model,HttpSession
-request) {
-//        List<Producto> carrito = new List();
-        
-        
+    @GetMapping("carrito")
+    public String carrito(HttpSession session, ModelMap model) {
+     List<Producto> productos = (List<Producto>) session.getAttribute("productos");
+       session.setAttribute("productos", productos);
+        return "carrito.html";
+    }
+
+    @PostMapping("cart{productoId}")
+    public String tienda(@PathVariable String productoId, ModelMap model, HttpSession session) {
+    
+
         return "tienda.html";
     }
 
@@ -58,7 +72,7 @@ request) {
     public String adopciones(Model model) {
         List<Mascota> listMascota = mascotaServicio.listaMascota();
         model.addAttribute("mascota", listMascota);
-        
+
         return "adopcionesFix.html";
     }
 

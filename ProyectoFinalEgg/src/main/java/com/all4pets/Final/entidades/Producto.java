@@ -14,8 +14,7 @@ public class Producto {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    @Enumerated(EnumType.STRING)
-    private Tipo tipo;
+    
     
   
     

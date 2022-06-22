@@ -40,7 +40,7 @@ cambiar imagines de productos,
             <div class="nav-item"><a href="/index">Home</a></div>   
         </div>
         <li class="nav-item">
-          <a href="-">Carrito</a>
+          <a href="/carrito">Carrito</a>
         </li>
       </ul>
     </nav>
@@ -103,11 +103,10 @@ cambiar imagines de productos,
               <div class="product-img">
                   <img src="imgs\excellent-cat.jpg" alt="" />
                 <div class="p-mask">
-                  <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
-                    
-                    <input type="hidden" name="amount" value="50.00" />
+                  <form action="cart" method="POST">
+                    <input type="hidden" name="productoId" th:value="${(1)}" />
+                
+                  
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -127,10 +126,10 @@ cambiar imagines de productos,
                 <img src="imgs\7vidas.png" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="2" />
+                 
                     
-                    <input type="hidden" name="amount" value="20.00" />
+                    
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -149,10 +148,10 @@ cambiar imagines de productos,
                 <img src="imgs\whiskas-sobrecitos.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="3" />
+                  
                     
-                    <input type="hidden" name="amount" value="30.00" />
+                  
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -174,10 +173,10 @@ cambiar imagines de productos,
                 <img src="imgs\canita.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="4" />
+                   
                     
-                    <input type="hidden" name="amount" value="80.00" />
+       
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -196,10 +195,10 @@ cambiar imagines de productos,
                 <img src="imgs\ratitas.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="5" />
+                   
                     
-                    <input type="hidden" name="amount" value="120.00" />
+             
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -218,10 +217,9 @@ cambiar imagines de productos,
                 <img src="imgs\torre.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
-                    
-                    <input type="hidden" name="amount" value="30.00" />
+                    <input type="hidden" name="productoId" value="6" />
+                  
+               
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -243,10 +241,10 @@ cambiar imagines de productos,
                 <img src="imgs\comederos.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="7" />
+               
                     
-                    <input type="hidden" name="amount" value="110.00" />
+                
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -265,10 +263,10 @@ cambiar imagines de productos,
                 <img src="imgs\collares.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="8" />
+                 
                    
-                    <input type="hidden" name="amount" value="180.00" />
+                 
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -287,10 +285,10 @@ cambiar imagines de productos,
                 <img src="imgs\bandeja-sanitaria.jpg" alt="" />
                 <div class="p-mask">
                   <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="1" />
+                    <input type="hidden" name="productoId" value="9" />
                    
-                    <input type="hidden" name="amount" value="130.00" />
+                   
+                 
                     <button type="submit" class="w3ls-cart pw3ls-cart">
                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
                       cart
@@ -306,6 +304,19 @@ cambiar imagines de productos,
         </div>
       </div>
     </div>
+      <table class="table" id="autoresListados">
+                                               
+                                                <tbody>
+                                                   
+                                                    <tr  class="border" th:each="productos:${productos}">
+                                                       <strong> <td  th:text="${productos.nombre}"></td></strong>
+                                                        <td th:text="${productos.precio}"></td>
+                                                         <td th:text="${productos.descripcion}"></td>
+                                                       
+                                                    </tr>
+                                                        
+                                                </tbody>
+                                            </table>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
