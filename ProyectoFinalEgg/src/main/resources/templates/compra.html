@@ -8,13 +8,13 @@
                     <link  th:href="@{one-page-wonder.min.css}" rel="stylesheet">
                         <link th:href="@{bootstrap.min.css}" rel="stylesheet">
                             <link th:href="@{one-page-wonder.css}" rel="stylesheet">
-                                <link rel="stylesheet" href="/editarDatosPerfil.css">
+                                <link rel="stylesheet" href="/editarDatosPerfil2.css">
                                     <link rel="icon" href="imgs/filled_pets_icon-icons.com_59360.png">
 
                                         <link rel="stylesheet" href="style.css">
                                             </head>
                                             </head>
-                                            <body>
+                                            <body style="background: url(background.png)!important ">
 
 
                                                 <nav style="background:#333333 !important; opacity: 0.9" border="1" bordercolor="#00CC66" class="fixed-top navbar navbar-expand-lg navbar-dark bg-black my-navbar">
@@ -24,27 +24,11 @@
                                                         <div class="nav-item "><a href="/inicio">Home</a></div>
 
                                                         <li class="nav-item">
-                                                            <a href="/carrito">Carrito</a>
+                                                            <a href="/tienda">Tienda</a>
                                                         </li>
                                                     </ul>
                                                 </nav>
-                                                    <table  border="1" bordercolor="#00CC66" Style="background: #5955FF " class="table border-l b" id="autoresListados">
-
-                                                        <tbody>
-
-                                                            <tr  Style="background: #5955FF" class="border-dark " th:each="producto : ${productosCarrito}">
-                                                                <strong> <td   Style="background: #5955FF; font-weight: bold" th:text="${producto.nombre}"></td></strong>
-                                                                <td Style="background: #5955FF; font-weight: bold" th:text="${ '$' + producto.precio}"></td>
-                                                                <td  Style="background: #5955FF; font-weight: bold" th:text="${producto.descripcion}"></td>
-                                                                <td><a class="btn btn-warning" th:href="@{eliminar (id=${producto.id})}">Eliminar del carrito</a></td>
-
-
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-
-
+                                         <h1   th:if="${exito != null}" th:text="${exito}" style="color:green;"></h1>
 
 
                                             </body>

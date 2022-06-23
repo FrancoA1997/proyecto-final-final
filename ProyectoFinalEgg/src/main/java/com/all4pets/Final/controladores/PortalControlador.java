@@ -72,6 +72,13 @@ public class PortalControlador {
       
        return "redirect:/carrito" ;
     }
+     @GetMapping("compra")
+    public String compra(ModelMap model) {
+        
+       model.put("exito", "Gracias por su compra!");
+      
+       return "compra.html" ;
+    }
 
     @PostMapping("cart")
     public String tienda(@RequestParam String productoId, ModelMap model, HttpSession session) {
