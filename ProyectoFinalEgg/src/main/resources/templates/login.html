@@ -11,19 +11,23 @@
 
 
 	
-		
-			<h1 class="logo" > <a href="index.html">All 4 Pets</a></h1>
+		<br>
+                    <br>
+			
 			
 		
 	
 	<div class="main">  	
+            <h1 class="logo" > <a href="/">All 4 Pets</a></h1>s
 		<input type="checkbox" id="chk" aria-hidden="true">
 		
 			<div class="signup">
 				<form action="usuario/registro" method="POST">
 					<label for="chk" aria-hidden="true">Registrarse</label>
-                                        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-                                        <p th:if="${exito != null}" th:text="${exito}" style="color:green;"></p>
+                                        <label for="chk" aria-hidden="true" th:if="${error != null}" th:text="${error}" style="color:red;"></label>
+                                        <label   th:if="${exito != null}" th:text="${exito}" style="color:green;"></label>
+                                      
+                                       
 					<input type="text"  placeholder="Nombre y apellido"  name="nombre" th:value="${nombre}">
 					<input type="email"  placeholder="Email" name="email" th:value="${email}">
 					<input type="password"  placeholder="Contraseña" name="pswd" th:value="${pswd}">
@@ -34,7 +38,7 @@
 			<div class="login">
 				<form action="/logincheck" method="POST">
 					<label for="chk" aria-hidden="true">Iniciar Sesion</label>
-                                        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                                        <label for="chk" aria-hidden="true" th:if="${error != null}" th:text="${error}" style="color:red;"></label>
 					<input type="email" name="email" placeholder="Email/Nombre de usuario" >
 					<input type="password" name="pswd" placeholder="Contraseña" >
 					<button type="submit">Iniciar Sesion</button>

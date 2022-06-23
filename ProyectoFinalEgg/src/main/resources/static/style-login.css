@@ -1,4 +1,7 @@
-
+@font-face{
+    font-family: "Cafe Matcha";
+        src:url ("fonts/Cafe Matcha.ttf") format("TrueType");
+}
 body{
 	margin: 0;
 	padding: 0;
@@ -66,7 +69,7 @@ panel inicio
 
 label{
 	color: #6C63FF;
-	font-size: 2.3em;
+	font-size: 1.3em;
 	justify-content: center;
 	display: flex;
 	margin: 60px;

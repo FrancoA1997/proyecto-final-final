@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+@font-face{
+    font-family: "Cafe Matcha"
+        src:url ("https://www.dafont.com/es/cafe-matcha.font")
+}
 * {
   margin: 0;
   padding: 0;

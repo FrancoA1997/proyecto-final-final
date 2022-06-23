@@ -52,7 +52,9 @@ public class UsuarioControlador {
             modelo.put("pswd", pswd);
         }
         
-        modelo.put("exito", "Registrado con éxito");
+       
+         modelo.put("exito", "Registrado con éxito");
+          modelo.put("exito2", "Bienvenido!");
         return "login.html";
     }
     
