@@ -1,6 +1,6 @@
 @font-face{
     font-family: "Cafe Matcha";
-        src:url ("fonts/Cafe Matcha.ttf") format("TrueType");
+        src: url ("fonts/Cafe Matcha.ttf") format("TrueType");
 }
 body{
 	margin: 0;

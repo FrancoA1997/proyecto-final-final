@@ -61,6 +61,17 @@ public class PortalControlador {
         model.addAttribute("productosCarrito", productosCarrito);
         return "carrito.html";
     }
+    
+    @GetMapping("eliminar")
+    public String eliminarObjeto(@RequestParam String id, HttpSession session) {
+        List<Producto> productos = (List<Producto>) session.getAttribute("carrito");
+         Producto producto = productoRepo.findProductById(id);
+         
+         productos.remove(producto);
+         session.setAttribute("carrito", productos);
+      
+       return "redirect:/carrito" ;
+    }
 
     @PostMapping("cart")
     public String tienda(@RequestParam String productoId, ModelMap model, HttpSession session) {

@@ -17,45 +17,46 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
 @Controller
 @RequestMapping("/imagen")
 public class ImagenControlador {
+
     @Autowired
     private UsuarioServicio usuarioServicio;
     @Autowired
     private MascotaServicio mascotaServicio;
-  @GetMapping("/usuario")  
-public ResponseEntity<byte[]> imagenUsuario(String id) throws ExcepcionPropia{
-    try{
-    Usuario usuario = usuarioServicio.buscarPorId(id);
-    if(usuario.getImagen() == null){
-        throw new ExcepcionPropia("El usuario no tiene foto asignada");
+
+    @GetMapping("/usuario")
+    public ResponseEntity<byte[]> imagenUsuario(String id) throws ExcepcionPropia {
+        try {
+            Usuario usuario = usuarioServicio.buscarPorId(id);
+            if (usuario.getImagen() == null) {
+                throw new ExcepcionPropia("El usuario no tiene foto asignada");
+            }
+            byte[] imagen = usuario.getImagen().getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
+        } catch (ExcepcionPropia e) {
+            Logger.getLogger(ImagenControlador.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-    byte[] imagen = usuario.getImagen().getContenido();
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.IMAGE_JPEG);
-    return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
-    } catch(ExcepcionPropia e) {
-        Logger.getLogger(ImagenControlador.class.getName()).log(Level.SEVERE,null, e);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    } 
-}
- @GetMapping("/mascota") 
-public ResponseEntity<byte[]> imagenMascota(String id) throws ExcepcionPropia{
-    try{
-    Mascota mascota = mascotaServicio.buscarPorId(id);
-    if(mascota.getImagen() == null){
-        throw new ExcepcionPropia("El usuario no tiene foto asignada");
+
+    @GetMapping("/mascota")
+    public ResponseEntity<byte[]> imagenMascota(String id) throws ExcepcionPropia {
+        try {
+            Mascota mascota = mascotaServicio.buscarPorId(id);
+            if (mascota.getImagen() == null) {
+                throw new ExcepcionPropia("El usuario no tiene foto asignada");
+            }
+            byte[] imagen = mascota.getImagen().getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
+        } catch (ExcepcionPropia e) {
+            Logger.getLogger(ImagenControlador.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-    byte[] imagen = mascota.getImagen().getContenido();
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.IMAGE_JPEG);
-    return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
-    } catch(ExcepcionPropia e) {
-        Logger.getLogger(ImagenControlador.class.getName()).log(Level.SEVERE,null, e);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    } 
-}
 }
