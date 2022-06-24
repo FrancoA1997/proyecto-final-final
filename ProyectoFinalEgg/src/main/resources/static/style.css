@@ -1,14 +1,12 @@
 
-@font-face{
-    font-family: "Cafe Matcha";
-        src:url ("/static/imgs/Cafe Matcha.ttf");
+
         
       .my-navbar {
   border: 0;
   border-radius: 0;
   background: grey;
 }
-}
+
 table{
    width: 1%;
 	height: 500px;
